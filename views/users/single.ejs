@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head %>
+  <title>Single</title>
+</head>
+<body>
+  <h2>This is a single users page</h2>
+  <h2>Username: <%=user.username %></h2>
+  <% if(posts.length === 0){ %>
+    <h2>posts:</h2>
+    <h4>No posts....</h4>
+  <%  } else { %>
+  <% posts.forEach(function (post) { %>
+      <h2>posts:</h2>
+      <h3><%=post.title %></h3>
+  <% }) %>
+  <% } %>
+  <h2>comments:</h2>
+  <% comments.forEach(function (comment) { %>
+      <h4><%=comment.content %></h4>
+  <% }) %>
+</body>
+</html>

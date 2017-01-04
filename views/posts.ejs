@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ./partials/head %>
+  <title>Posts</title>
+</head>
+<body>
+  <h2>Here are the posts</h2>
+  <ul>
+  <% posts.forEach(function (post) { %>
+    <li><a href="/posts/<%= post.id %>"><%=post.title  %></a></li>
+    <li>by: <%=post.username %></li>
+  <% }) %>
+  </ul>
+  <a href="/posts/new">Add a new post</a>
+</body>
+</html>

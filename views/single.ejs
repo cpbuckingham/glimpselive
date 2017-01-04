@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ./partials/head %>
+    <title>Document</title>
+</head>
+
+<body>
+  <form class="" action="/posts/<%= post.id %>?_method=DELETE" method="POST">
+    <input type="submit" value="Delete">
+  </form>
+  <form class="" action="/posts/<%= post.id %>/edit" method="GET">
+    <input type="submit" value="Edit">
+  </form>
+    <h2>Here is a single post</h2>
+    <h2><%= post.title %></h2>
+    <h2><%= post.body %></h2>
+
+
+  <% if(data.length === 0) { %>
+    <h5>there are no comments</h5>
+    <% } else { %>
+    <ul>
+    <% data.forEach(function(comment) { %>
+      <li><%=comment.content %> - <%=comment.username %></li>
+    <% }) %>
+    <% } %>
+    <p></p>
+    <form action="/posts/<%=postID %>" method="post">
+
+      <label for="content">Comment:</label>
+      <p>
+        <textarea name="content" rows="8" cols="40"></textarea>
+      </p>
+      <input type="submit">
+    </form>
+  </ul>
+</body>
+
+</html>
