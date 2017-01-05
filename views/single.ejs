@@ -1,21 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html>
 <head>
-    <% include ./partials/head %>
-    <title>Document</title>
+  <% include ./partials/head %>
+  <style>
+      body        { padding-top:80px; }
+  </style>
 </head>
-
+<div class="container">
+<div class="col-sm-6 col-sm-offset-3">
 <body>
-  <form class="" action="/posts/<%= post.id %>?_method=DELETE" method="POST">
-    <input type="submit" value="Delete">
-  </form>
-  <form class="" action="/posts/<%= post.id %>/edit" method="GET">
-    <input type="submit" value="Edit">
-  </form>
-    <h2>Here is a single post</h2>
-    <h2><%= post.title %></h2>
-    <h2><%= post.body %></h2>
+    <h3>Title: <%= post.title %></h3>
+    <h3>Body: <%= post.body %></h3>
 
 
   <% if(data.length === 0) { %>
@@ -33,9 +28,23 @@
       <p>
         <textarea name="content" rows="8" cols="40"></textarea>
       </p>
-      <input type="submit">
+      <input type="submit" class="btn btn-success btn-lg">
+    </form>
+    <hr>
+
+    <form class="" action="/posts/<%= post.id %>?_method=DELETE" method="POST">
+      <input type="submit" value="Delete" class="btn btn-danger btn-lg">
+    </form>
+    <hr>
+
+    <form class="" action="/posts/<%= post.id %>/edit" method="GET">
+      <input type="submit" value="Edit" class="btn btn-warning btn-lg">
     </form>
   </ul>
+  <hr>
+  <a href="/auth">home</a>
+</div>
+</div>
 </body>
 
 </html>
