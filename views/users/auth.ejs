@@ -1,29 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html>
 <head>
-    <% include ../partials/head %>
-    <title>Document</title>
+  <% include ../partials/head %>
+  <style>
+      body        { padding-top:80px; }
+  </style>
 </head>
-
 <body>
-    <% if (user){ %>
-        <h2>Logged in as: <%=user.username %></h2>
-        <p>
-            <a href="/posts">Go check out the front page</a>
-        </p>
-        <p>
-            <a href="/users/<%= user.id %>">Go check out your page</a>
-        </p>
-        <p>
-            <a href="/auth/logout">Log Out</a>
-        </p>
-        <% } else { %>
-            <h2>You're currently not logged in!</h2>
-            <p>
-                <a href="/auth/login">Login</a>
-            </p>
-            <% } %>
-</body>
+<div class="container">
 
+<div class="col-sm-6 col-sm-offset-3">
+  <% if (user){ %>
+    <h1><span class="fa fa-sign-in"></span> Welcome, <%=user.username %></h1>
+            <p>
+                <a href="/posts">Go check out the front page</a>
+            </p>
+            <p>
+                <a href="/users/<%= user.id %>">Go check out your page</a>
+            </p>
+            <p>
+                <a href="/auth/logout">Log Out</a>
+            </p>
+            <% } else { %>
+                <h2>You're currently not logged in!</h2>
+                <p>
+                    <a href="/auth/login">Login</a>
+                </p>
+                <% } %>
+
+</div>
+
+</div>
+</body>
 </html>

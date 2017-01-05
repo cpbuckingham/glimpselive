@@ -1,24 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
   <% include ../partials/head %>
-  <title>Single</title>
+  <style>
+      body        { padding-top:80px; }
+  </style>
 </head>
 <body>
-  <h2>This is a single users page</h2>
-  <h2>Username: <%=user.username %></h2>
-  <% if(posts.length === 0){ %>
-    <h2>posts:</h2>
-    <h4>No posts....</h4>
-  <%  } else { %>
-  <% posts.forEach(function (post) { %>
+<div class="container">
+<div class="col-sm-6 col-sm-offset-3">
+    <h2>Username: <%=user.username %></h2>
+    <% if(posts.length === 0){ %>
       <h2>posts:</h2>
-      <h3><%=post.title %></h3>
-  <% }) %>
-  <% } %>
-  <h2>comments:</h2>
-  <% comments.forEach(function (comment) { %>
-      <h4><%=comment.content %></h4>
-  <% }) %>
+      <h4>No posts....</h4>
+    <%  } else { %>
+      <h2>posts:</h2>
+    <% posts.forEach(function (post) { %>
+        <h4><%=post.title %></h4>
+    <% }) %>
+    <% } %>
+    <h2>comments:</h2>
+    <% comments.forEach(function (comment) { %>
+        <h4><%=comment.content %></h4>
+    <% }) %>
+    <hr>
+    <a href="/auth">home</a>
+</div>
+</div>
 </body>
 </html>
