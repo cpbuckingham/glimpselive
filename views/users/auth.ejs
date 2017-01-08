@@ -1,12 +1,6 @@
 <!doctype html>
 <html>
 <head>
-  <!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-
   <% include ../partials/head %>
   <style>
       body        { padding-top:80px; }
@@ -17,7 +11,7 @@
 
 <div class="col-sm-6 col-sm-offset-3">
   <% if (user){ %>
-    <h1><img src="../images/2.png"></span> Welcome, <%=user.username %></h1>
+    <h1><span class="fa fa-sign-in"></span> Welcome, <%=user.username %></h1>
             <p>
                 <a href="/posts">Go check out the front page</a>
             </p>
