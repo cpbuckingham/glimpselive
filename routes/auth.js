@@ -4,8 +4,9 @@ const router = express.Router();
 const knex = require('../db/knex');
 const bcrypt = require('bcrypt');
 const flash = require('flash');
-// const Users = function() { return knex('users') };
+const createAvatar = require('../public/js/octodex_avatar');
 
+// const Users = function() { return knex('users') };
 function authorizedUser(req, res, next) {
   //
   let userID = req.session.user.id;
@@ -40,13 +41,15 @@ router.post('/signup', function (req, res, next) {
   }).first().then(function(user){
     if(!user){
       let hash = bcrypt.hashSync(req.body.hashed_password, 12);
+      let created_avatar = createAvatar.generateAvatar(cb);
       knex('users').insert({
         username: req.body.username,
         hashed_password: hash,
         first_name: req.body.first_name,
         last_name: req.body.last_name,
         email: req.body.email,
-        admin: req.body.admin
+        admin: req.body.admin,
+        avatar: created_avatar,
       }).then(function (){
         res.redirect('/auth/login');
       })
