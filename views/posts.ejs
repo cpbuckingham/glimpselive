@@ -12,8 +12,7 @@
   <h2>Here are all the posts</h2>
   <ul>
   <% posts.forEach(function (post) { %>
-    <li><a href="/posts/<%= post.id %>"><%=post.title  %></a></li>
-    <li>by: <%=post.username %></li>
+    <li><a href="/posts/<%= post.id %>"><%=post.title  %></a> - <%=post.username %></li>
   <% }) %>
   </ul>
   <hr>
