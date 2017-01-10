@@ -7,30 +7,15 @@
   </style>
 </head>
 <body>
-<div class="container">
-
-<div class="col-sm-6 col-sm-offset-3">
-  <% if (user){ %>
-    <h1><span class="fa fa-sign-in"></span> Welcome, <%=user.username %></h1>
-    <h3><%=user.avatar %></h3>
-            <p>
-                <a href="/posts">Go check out the front page</a>
-            </p>
-            <p>
-                <a href="/users/<%= user.id %>">Go check out your page</a>
-            </p>
-            <p>
-                <a href="/auth/logout">Log Out</a>
-            </p>
-            <% } else { %>
-                <h2>You're currently not logged in!</h2>
-                <p>
-                    <a href="/auth/login">Login</a>
-                </p>
-                <% } %>
-
-</div>
-
+  <div class="container">
+    <div class="span3 well">
+        <center>
+        <img src="<%=user.avatar %>" name="aboutme" width="180" height="180" class="img-circle"></a>        <h3>Hey, <%=user.username %></h3>
+        <a class="btn btn-success" href="/posts" role="button">Create a Post</a>
+        <a class="btn btn-warning" href="/users/<%= user.id %>" role="button">Your Posts</a>
+        <a class="btn btn-danger" href="/auth/logout" role="button">Logout</a>
+      </center>
+    </div>
 </div>
 </body>
 </html>

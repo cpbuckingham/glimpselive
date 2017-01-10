@@ -17,10 +17,10 @@ function generateAvatar(cb){
         });
         function getRandomInt(min, max) {
           return Math.floor(Math.random() * (max - min + 1)) + min;
-          }
+        }
           result = arr[getRandomInt(0,arr.length)];
           console.log(result)
-          cb(result)
+          cb(result);
       }else{
         return "no avatar generated";
       }

@@ -1,6 +1,3 @@
-body {
-  background-color: gray;
-}
 /*FORM*/
 
 .form-container {
@@ -14,24 +11,19 @@ body {
 
 /*no ugly boxes*/
 input[type='text'], input[type='password'] {
-    text-align: center;
+    /*text-align: center;
     background-color: transparent;
     border: 0px;
-    outline: none;
-    -webkit-box-shadow: none;
+    outline: none;*/
+    /*-webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
     width: auto;
     color: white;
-    cursor: text;
+    cursor: text;*/
 }
 
 .field {
   position: relative;
-
-}
-
-/*style submit button*/
-input[type="submit"] {
 
 }
