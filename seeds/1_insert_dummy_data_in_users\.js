@@ -6,27 +6,33 @@ exports.seed = function ( knex, Promise ) {
                 // Inserts seed entries
                 knex( 'users' ).insert( {
                     id: 1,
-                    username: 'JTongay',
+                    username: 'cam',
                     admin: true,
-                    first_name: 'Joey',
-                    last_name: 'Tongay',
-                    email: 'joey.tongay@gmail.com'
+                    first_name: 'cam',
+                    last_name: 'buckingham',
+                    hashed_password: 'cam',
+                    avatar: 'https://octodex.github.com/images/homercat.png',
+                    email: 'cam@gmail.com'
                 } ),
                 knex( 'users' ).insert( {
                     id: 2,
-                    username: 'batman',
+                    username: 'jam',
                     admin: false,
-                    first_name: 'Bruce',
-                    last_name: 'Wayne',
-                    email: 'imnotbatman@gmail.com'
+                    first_name: 'jam',
+                    last_name: 'buckingham',
+                    hashed_password: 'jam',
+                    avatar: 'https://octodex.github.com/images/octocat-de-los-muertos.jpg',
+                    email: 'jam@gmail.com'
                 } ),
                 knex( 'users' ).insert( {
                     id: 3,
-                    username: '1337N1NJA',
+                    username: 'bam',
                     admin: false,
-                    first_name: 'Erin',
-                    last_name: 'Miller',
-                    email: 'millere729@yahoo.com'
+                    first_name: 'bam',
+                    last_name: 'bam',
+                    hashed_password: 'bam',
+                    avatar: 'https://octodex.github.com/images/filmtocat.png',
+                    email: 'bam@gmail.com'
                 } )
             ] );
         } );
