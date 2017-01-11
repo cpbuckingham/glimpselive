@@ -29,7 +29,7 @@ app.use(methodOverride('_method'))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieSession({
-  secret: "booyah",
+  secret: "buttsncheeks",
 }))
 app.use(require('flash')());
 

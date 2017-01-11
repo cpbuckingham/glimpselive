@@ -5,7 +5,7 @@ module.exports = {
   development: {
     client: 'pg',
     connection: {
-      database: 'reddit-clone-v2-dev',
+      database: 'glimpse-dev',
       host: 'localhost'
     }
   },
@@ -13,14 +13,14 @@ module.exports = {
   test: {
     client: 'pg',
     connection: {
-      database: 'reddit-clone-v2-test',
+      database: 'glimpse-test',
       host: 'localhost',
     }
   },
 
   production: {
     client: 'pg',
-    connection: process.env.DATABASE_URL,    
+    connection: process.env.DATABASE_URL,
   }
 
   // production: {

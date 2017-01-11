@@ -167,7 +167,7 @@ describe('Add Account', function () {
    request.post('/auth/signup')
           .send({
             username: 'testing',
-            email: 'ididit@yahoo.com',
+            email: 'test@gmail.com',
             hashed_password: 'partytime'
           })
           .end(function (err, res) {
@@ -176,7 +176,7 @@ describe('Add Account', function () {
             }
             knex('users').where('username', 'testing').first().then(function (user) {
               expect(user.username).to.equal('testing');
-              expect(user.email).to.equal('ididit@yahoo.com');
+              expect(user.email).to.equal('test@gmail.com');
               expect(user.admin).to.equal(false);
               done();
             })
@@ -186,8 +186,8 @@ describe('Add Account', function () {
  it('Should not add a new account to the database if the username is taken', function (done) {
    request.post('/auth/signup')
           .send({
-            username: 'batman',
-            email: 'imnotbatman@gmail.com',
+            username: 'marc',
+            email: 'marc@gmail.com',
             hashed_password: 'password'
           })
           .end(function (err, res) {

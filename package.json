@@ -1,7 +1,7 @@
 {
-  "name": "reddit-clone",
+  "name": "glimpse",
   "version": "1.0.0",
-  "description": "full reddit clone with user auth and user reg",
+  "description": "have a healthy life with this app",
   "main": "server.js",
   "directories": {
     "test": "test"
