@@ -68,7 +68,7 @@
 
       <!-- COMPLETE LIBRARY -->
       <div class="link_group">
-        <h2>Complete Library</h2>
+        <h2>Sample Workouts for the Office</h2>
 
         <a  class='p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.zip">
           <div class="download_box">
@@ -182,23 +182,6 @@
 
     </section>
 
-    <script type='text/javascript'>
-      $.getJSON('version.json', function(data) {
-        $('#p5_version').text(data.version);
-        $('#p5_date').text(data.date);
-        $('.p5_link').each(function() {
-          var link = $(this).attr('href').replace('[p5_version]', data.version);
-          $(this).attr('href', link);
-        });
-        $('.editor_version').text(data.editor_version);
-        $('.editor_link').each(function() {
-          var link = $(this).attr('href').replace('[editor_version]', data.editor_version);
-          $(this).attr('href', link);
-        });
-      });
-
-    </script>
-
 
 <footer>
   <p> Created, developed, and loved by <a href='http://cpbuckingham.com' target="_blank">Cam Buckingham</a>. Made to help people better maintain a healthy lifesyle through accountability & community.
@@ -226,7 +209,7 @@
 <div id="family">
   <p class="left"><a href="/">Home</a>
     <a href="/about">About</a>
-    <a href="http://the512streaker.com/">Blog</a>
+    <a href="/blog">Blog</a>
   </p>
 
   <p class="right">

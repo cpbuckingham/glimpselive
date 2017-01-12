@@ -20,6 +20,8 @@ const methodOverride = require('method-override');
 const users = require('./routes/users');
 const auth = require('./routes/auth');
 const posts = require('./routes/posts');
+const about = require('./routes/about');
+const blog = require('./routes/blog');
 
 
 // Use Middlewares
@@ -37,8 +39,8 @@ app.use(require('flash')());
 app.use('/users', users);
 app.use('/auth', auth);
 app.use('/posts', posts);
-
-
+app.use('/about', about);
+app.use('/blog', blog);
 
 app.listen(port, function () {
   console.log('hello from', port);
