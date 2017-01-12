@@ -6,18 +6,234 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
     <link rel="stylesheet" href="../style.css"> <!-- load fontawesome -->
     <link rel="icon" type="image/png" href="http://www.favicon.cc/logo3d/818121.png" />
-    <style>
-        body      { padding-top:80px; }
-    </style>
+
+    <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../js/ace.js"></script>
+    <script type="text/javascript" src="../js/mode-javascript.js"></script>
+    <script type="text/javascript" src="../js/prism.js"></script>
+    <script type="text/javascript" src="../js/scroll.js"></script>
+    <script type="text/javascript" src="../js/init.js"></script>
 </head>
-<body>
-<div class="container">
-    <div class="jumbotron text-center">
-        <h1><font color="#FFA500">Glimpse</font></h1>
-        <p>Helping you to maintain work-life balance</p>
-        <a href="/auth/login" class="btn btn-default"><span class="fa fa-user"></span> Login</a>
-        <a href="/auth/signup" class="btn btn-default"><span class="fa fa-user"></span> Signup</a>
-    </div>
+
+  <body>
+
+    <a href="#content" class="skip">Skip to content</a>
+    <!-- .container -->
+    <div class="container">
+
+      <!-- logo -->
+      <header id="lockup">
+        <a href="/">
+          <div id="p5_logo"></div>
+        </a>
+        <p class='tagline'>Processing fun times JavaScript quirkiness</p>
+        <p class='tagline'>Processing simplicity times JavaScript flexibility</p>
+        <p class='tagline'>Processing intuition times JavaScript power</p>
+        <p class='tagline'>Processing creativity times JavaScript dynamism</p>
+        <p class='tagline'>Processing community times JavaScript community</p>
+        <p class='tagline'>the power of Processing times the reach of JavaScript</p>
+      </header>
+      <!-- close logo -->
+
+
+
+<div id="download-page">
+
+
+<!-- site navigation -->
+<div class="column-span">
+  <nav role="navigation">
+    <ul id="menu">
+      <!-- <br>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/auth/login">Login</a></li>
+      <li><a href="/auth/signup">Signup</a></li> -->
+    </ul>
+  </nav>
 </div>
-</body>
+
+<!-- <script src="../assets/js/scroll.js"></script> -->
+
+
+  <div class="column-span">
+
+    <section id="content" role="region" label="main content">
+
+      <h1>Juice</h1>
+
+      <p>Everyone knows its hard losing weight, with Juice we squeeze it right out of you! Use this app on the go to track your workouts. Invite your friends and help them hold you accountable.<br>
+      </p>
+
+      <!-- COMPLETE LIBRARY -->
+      <div class="link_group">
+        <h2>Complete Library</h2>
+
+        <a  class='p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.zip">
+          <div class="download_box">
+
+            <h4>p5.js complete</h4>
+
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve"><path stroke-miterlimit="10" d="M16.909,10.259l8.533-2.576l1.676,5.156l-8.498,2.899l5.275,7.48
+                l-4.447,3.225l-5.553-7.348L8.487,26.25l-4.318-3.289l5.275-7.223L0.88,12.647l1.678-5.16l8.598,2.771V1.364h5.754V10.259z"/>
+            </svg>
+
+            <p>Includes:
+              <br>p5.js, p5.dom.js, p5.sound.js, and an example project
+            <br>Version  <span id="p5_version"></span> (<span id="p5_date"></span>)
+            </p>
+
+          </div>
+        </a>
+        <div class="spacer"></div>
+      </div>
+
+      <!-- SINGLE FILES -->
+      <div class="link_group">
+
+        <h2>Single Files</h2>
+        <a class='p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.js">
+          <div class="download_box half_box">
+            <h4>p5.js</h4>
+            <p>Single file:
+              <br>Full uncompressed version</p>
+          </div>
+        </a>
+
+        <a class='p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.min.js">
+          <div class="download_box half_box">
+            <h4>p5.min.js</h4>
+            <p>Single file:
+              <br>Compressed version</p>
+          </div>
+        </a>
+
+        <a href="http://cdnjs.com/libraries/p5.js">
+          <div class="download_box half_box">
+            <h4>CDN</h4>
+            <p>Link:
+              <br>Statically hosted file</p>
+          </div>
+        </a>
+
+        <div class="spacer"></div>
+
+      </div>
+
+      <!-- EDITOR -->
+      <!-- <div class="link_group">
+        <a name="editor" class="anchor">
+          <h2>Editor</h2></a>
+
+        <p>The p5.js editor is currently in development, try out a beta version of it now. Help out by posting
+          <a href="https://github.com/processing/p5.js-editor/issues">
+             feedback and bugs</a>.
+        </p>
+
+        <a class="editor_link" href="https://github.com/processing/p5.js-editor/releases/download/v[editor_version]/p5-mac.zip">
+          <div class="download_box half_box">
+            <h4>Mac OS X</h4>
+            <p>p5 editor
+              <br>Version
+              <span class="editor_version"></span></p>
+          </div>
+        </a>
+
+        <a class="editor_link" href="https://github.com/processing/p5.js-editor/releases/download/v[editor_version]/p5-win.zip">
+          <div class="download_box half_box">
+            <h4>Windows</h4>
+            <p>p5 editor
+              <br>Version
+              <span class="editor_version"></span></p>
+          </div>
+        </a>
+
+        <a class="editor_link" href="https://github.com/processing/p5.js-editor/releases/download/v[editor_version]/p5-linux.zip">
+          <div class="download_box half_box">
+            <h4>Linux</h4>
+            <p>p5 editor
+              <br>Version
+              <span class="editor_version"></span></p>
+          </div>
+        </a>
+
+        <div class="spacer"></div>
+      </div> -->
+
+      <!-- ETC -->
+      <div class="link_group">
+        <h2>ETC</h2>
+
+        <p>Older releases / changelog <a href="https://github.com/processing/p5.js/releases">p5</a>, <a href="https://github.com/processing/p5.js-editor/releases">editor</a><br>
+        Github
+        <a href="https://github.com/processing/p5.js">p5</a>,
+        <a href="https://github.com/processing/p5.js-editor">editor</a>
+        <br>
+        Report bugs
+        <a href="https://github.com/processing/p5.js/issues">p5</a>, <a href="https://github.com/processing/p5.js-editor/issues">editor</a>
+        <br>
+        Supported browsers <a href="https://github.com/processing/p5.js/wiki/Supported-browsers">p5</a>
+        </p>
+
+        <div class="spacer"></div>
+      </div>
+
+    </section>
+
+    <script type='text/javascript'>
+      $.getJSON('version.json', function(data) {
+        $('#p5_version').text(data.version);
+        $('#p5_date').text(data.date);
+        $('.p5_link').each(function() {
+          var link = $(this).attr('href').replace('[p5_version]', data.version);
+          $(this).attr('href', link);
+        });
+        $('.editor_version').text(data.editor_version);
+        $('.editor_link').each(function() {
+          var link = $(this).attr('href').replace('[editor_version]', data.editor_version);
+          $(this).attr('href', link);
+        });
+      });
+
+    </script>
+
+
+<footer>
+  <p> Created, developed, and loved by <a href='http://cpbuckingham.com' target="_blank">Cam Buckingham</a>. Made to help people better maintain a healthy lifesyle through accountability & community.
+</footer>
+
+
+  </div> <!-- end column-span -->
+
+
+<!-- outside of column for footer to go across both -->
+
+<p class="clearfix"> &nbsp; </p>
+
+<object type="image/svg+xml" data="../images/pineapple.svg" id="asterisk-design-element">
+     *<!-- to do: add fallback image in CSS -->
+</object>
+
+
+</div><!-- end id="get-started-page"  -->
+
+
+    </div> <!-- close class='container'-->
+
+
+<div id="family">
+  <p class="left"><a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="http://the512streaker.com/">Blog</a>
+  </p>
+
+  <p class="right">
+    <a href="/auth/login">Login</a>
+    <a href="/auth/signup">Register</a>
+  </p>
+</div>
+
+  </body>
 </html>
