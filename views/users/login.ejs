@@ -4,14 +4,19 @@
   <% include ../partials/head %>
   <style>
       body        { padding-top:80px; }
+      img         {
+        position: fixed;
+        z-index: -1!important;
+        opacity: .3;
+      }
   </style>
 </head>
 <body>
 <div class="container">
 
 <div class="col-sm-6 col-sm-offset-3">
-
-    <h1><span class="fa fa-sign-in"></span> Login</h1>
+<img src="../images/pineapple.svg"/>
+    <h1>Login</h1>
 
     <!-- LOGIN FORM -->
     <form action="/auth/login" method="post">

@@ -1,6 +1,6 @@
 /*FORM*/
 .container_auth{
-  
+
 }
 .form-container {
     position: relative;
@@ -1879,10 +1879,10 @@ footer {
         left: 1%;
         height: 16em;
         width: 16em;
-        -webkit-transform: rotate(-21deg);
+        /*-webkit-transform: rotate(-21deg);
         -ms-transform: rotate(-21deg);
         -o-transform: rotate(-21deg);
-        transform: rotate(-21deg)
+        transform: rotate(-21deg)*/
     }
 }
 
