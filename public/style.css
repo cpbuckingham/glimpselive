@@ -341,7 +341,6 @@ table {
 #menu,
 #menu.top_menu {
     list-style: none;
-    font-family: AvenirNextLTW01-Medium;
     width: 100%;
     margin: 0 0 1em;
     padding: 0;
@@ -528,7 +527,6 @@ pre.norender {
 }
 
 .edit_space button {
-    font-family: AvenirNextLTW01-Medium;
     font-size: 1em;
     color: #ccc;
     border: 1px solid hsla(0, 0%, 78%, .15);
@@ -552,7 +550,6 @@ pre.norender {
 
 .display_button {
     margin-bottom: 2em;
-    font-family: AvenirNextLTW01-Medium;
     font-size: 1em;
     color: #2d7bb6;
     border: 1px solid rgba(45, 123, 182, .25);
@@ -576,7 +573,6 @@ pre.norender {
 #search input[type=password],
 #search input[type=search] {
     border: 1px solid hsla(0, 0%, 78%, .15);
-    font-family: AvenirNextLTW01-Medium
 }
 
 #search .twitter-typeahead .tt-hint,
@@ -757,7 +753,6 @@ textarea {
 }
 
 .contribute-form {
-    font-family: AvenirNextLTW01-Medium
 }
 
 .contribute-form input,
@@ -1045,9 +1040,6 @@ ul.statement-list {
 }
 
 @font-face {
-    font-family: AvenirNextLTW01-Medium;
-    src: url(fonts/AvenirNextLTW01-Medium.eot?#iefix);
-    src: url(fonts/AvenirNextLTW01-Medium.eot?#iefix) format("eot"), url(fonts/AvenirNextLTW01-Medium.woff) format("woff"), url(fonts/AvenirNextLTW01-Medium.ttf) format("truetype"), url(fonts/AvenirNextLTW01-Medium.svg#a89d6ad1-a04f-4a8f-b140-e55478dbea80) format("svg");
     font-weight: 400;
     font-style: normal
 }
@@ -1144,7 +1136,6 @@ a.nounderline:hover {
     width: 1px;
     text-align: left;
     overflow: hidden;
-    font-family: AvenirNextLTW01-Medium;
     font-size: .75em;
     font-weight: 400;
     border: 0;
@@ -1199,7 +1190,6 @@ h5 {
     margin: 1.414em 0 .5em;
     font-weight: inherit;
     line-height: 1.2;
-    font-family: AvenirNextLTW01-Medium
 }
 
 h1 {
@@ -1226,7 +1216,6 @@ h2 {
 
 #backlink {
     margin: 1.2em .444em 0 0;
-    font: 1em AvenirNextLTW01-Medium;
     float: right
 }
 
@@ -1438,7 +1427,6 @@ p+img {
 
 #lockup p {
     color: #2D7BB6;
-    font: .75em AvenirNextLTW01-Medium;
     margin: .5em 0 0 8.5em
 }
 
@@ -1455,7 +1443,6 @@ p+img {
 .caption p,
 .caption span {
     text-align: right;
-    font: .75em AvenirNextLTW01-Medium;
     padding-top: .25em
 }
 
@@ -1663,7 +1650,6 @@ footer {
     }
     #menu {
         list-style: none;
-        font-family: AvenirNextLTW01-Medium;
         margin: 0 .75em 0 -1.85em;
         width: 7.3em;
         height: 100%;
@@ -1743,7 +1729,6 @@ footer {
         width: 100%;
         height: 12.25em;
         list-style-type: none;
-        font-family: AvenirNextLTW01-Medium;
         clear: both;
         margin: 0 0 .5em;
         padding: 0;

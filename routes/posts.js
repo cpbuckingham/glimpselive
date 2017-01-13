@@ -17,7 +17,7 @@ function authorizedUser(req, res, next) {
   if(userID){
     next();
   } else {
-    res.render('restricted')
+    res.render('admin/restricted')
   }
 
 }
@@ -29,19 +29,19 @@ function authorizedAdmin(req, res, next) {
     if(admin.admin){
       next();
     } else {
-      res.render('admin')
+      res.render('admin/admin')
     }
   })
 }
 
 router.get('/', function (req, res, next) {
   knex('users').innerJoin('posts', 'users.id', 'posts.user_id').then(function(posts) {
-    res.render('posts', {posts: posts});
+    res.render('posts/posts', {posts: posts});
   })
 })
 
 router.get('/new', authorizedUser, function (req, res, next) {
-  res.render('new')
+  res.render('posts/new')
 })
 
 router.post('/', authorizedUser, function(req, res, next) {
@@ -65,7 +65,7 @@ router.get('/:id', function (req, res, next) {
     knex('users').innerJoin('comments', 'users.id', 'comments.user_id').where('comments.post_id', postID).then(function (data) {
       console.log("post: " + post.body);
       // console.log("data: " + data);
-      res.render('single', {
+      res.render('posts/single', {
         postID: postID,
         post: post,
         data: data
@@ -76,14 +76,14 @@ router.get('/:id', function (req, res, next) {
   router.get('/:id/edit', authorizedUser, function(req, res, next) {
     let postID = req.params.id;
     knex('posts').where('id', postID).first().then(function (post) {
-      res.render('edit', {post:post})
+      res.render('posts/edit', {post:post})
     })
   })
 
   router.get('/:id/comment/edit', authorizedUser, function (req, res, next) {
     let postID = req.params.id;
     knex('comments').where('post_id', postID).first().then(function(comment) {
-      res.render('editcomment', {
+      res.render('comments/editcomment', {
         comment:comment
       })
     })
