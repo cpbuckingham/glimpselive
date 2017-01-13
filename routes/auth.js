@@ -53,7 +53,6 @@ router.post('/signup', function (req, res, next) {
         }).then(function (){
           res.redirect('/auth/login');
         })
-
       });
     } else {
       res.redirect('/users');

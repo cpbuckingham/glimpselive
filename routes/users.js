@@ -35,7 +35,7 @@ router.get('/', [authorizedUser, authorizedAdmin], function(req, res, next) {
 
 
 //This should show users info, posts, and comments
-router.get('/:id', [authorizedUser, authorizedAdmin], function (req, res) {
+router.get('/:id', [authorizedUser], function (req, res) {
   let userID = req.params.id;
   knex('users').where('id', userID).first().then(function (user){
     knex('posts').where('user_id', userID).then(function (posts){

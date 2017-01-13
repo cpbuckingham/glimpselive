@@ -114,14 +114,14 @@ router.post('/:id', authorizedUser, function (req, res, next) {
   })
 })
 
-router.delete('/:id', authorizedAdmin, function (req, res, next) {
+router.delete('/:id', function (req, res, next) {
   let postID = req.params.id;
   knex('posts').where('id', postID).del().then(function (deleted) {
     res.redirect('/posts')
   })
 })
 
-router.put('/:id', authorizedAdmin ,function (req, res, next) {
+router.put('/:id' ,function (req, res, next) {
   let postID = req.params.id;
   knex('posts').where('id', postID).update({
     title: req.body.title,
@@ -131,7 +131,7 @@ router.put('/:id', authorizedAdmin ,function (req, res, next) {
   } )
 })
 
-router.put(':id/comments', authorizedAdmin, function (req, res, next) {
+router.put(':id/comments', function (req, res, next) {
   let postID = req.params.id;
   knex('comments').where('post_id', postID).update({
     content: req.body.content
