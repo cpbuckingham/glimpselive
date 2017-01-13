@@ -5,22 +5,22 @@ exports.seed = function ( knex, Promise ) {
             return Promise.all( [
                 // Inserts seed entries
                 knex( 'posts' ).insert( {
-                    id: 100000000,
+                    id: 1,
                     title: 'Hey there',
                     body: 'Watch this',
-                    user_id: 100000001
+                    user_id: 2
                 } ),
                 knex( 'posts' ).insert( {
-                    id: 100000001,
+                    id: 2,
                     title: 'Howdy',
                     body: 'Whats up?',
-                    user_id: 100000000
+                    user_id: 1
                 } ),
                 knex( 'posts' ).insert( {
-                    id: 100000002,
+                    id: 3,
                     title: 'Check this out',
                     body: 'I did things',
-                    user_id: 100000002
+                    user_id: 3
                 } )
             ] );
         } );

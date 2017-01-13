@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
       table.string('title').notNullable().defaultTo('check this out');
       table.string('body').notNullable().defaultTo("");
       table.integer('user_id').unsigned().index().references('id').inTable('users').onDelete('CASCADE');
+      table.timestamps(true, true);
     })
 };
 

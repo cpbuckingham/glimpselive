@@ -5,32 +5,35 @@ exports.seed = function ( knex, Promise ) {
             return Promise.all( [
                 // Inserts seed entries
                 knex( 'users' ).insert( {
-                    id: 100000000,
+                    id: 1,
                     username: 'cam',
                     admin: true,
                     first_name: 'cam',
                     last_name: 'buckingham',
-                    hashed_password: '$2a$12$GE6WR8XyHfprF7gNhTcCPenDsmgOrUM2LB5sz50wA0UJsQzddU1mu',
+                    hashed_password: '$2a$12$2fPhX9qJCLlVi0uXxttKPOhdHlC1x0THSLz5A1sjxVoZ5l6/C01ZK',
+                    //password = test
                     avatar: 'https://octodex.github.com/images/homercat.png',
                     email: 'cam@gmail.com'
                 } ),
                 knex( 'users' ).insert( {
-                    id: 100000001,
+                    id: 2,
                     username: 'jam',
                     admin: false,
                     first_name: 'jam',
                     last_name: 'buckingham',
-                    hashed_password: '$2a$12$GE6WR8XyHfprF7gNhTcCPenDsmgOrUM2LB5sz50wA0UJsQzddU1mu',
+                    hashed_password: '$2a$12$2fPhX9qJCLlVi0uXxttKPOhdHlC1x0THSLz5A1sjxVoZ5l6/C01ZK',
+                    //password = test
                     avatar: 'https://octodex.github.com/images/octocat-de-los-muertos.jpg',
                     email: 'jam@gmail.com'
                 } ),
                 knex( 'users' ).insert( {
-                    id: 100000002,
+                    id: 3,
                     username: 'bam',
                     admin: false,
                     first_name: 'bam',
                     last_name: 'bam',
-                    hashed_password: '$2a$12$GE6WR8XyHfprF7gNhTcCPenDsmgOrUM2LB5sz50wA0UJsQzddU1mu',
+                    hashed_password: '$2a$12$2fPhX9qJCLlVi0uXxttKPOhdHlC1x0THSLz5A1sjxVoZ5l6/C01ZK',
+                    //password = test
                     avatar: 'https://octodex.github.com/images/filmtocat.png',
                     email: 'bam@gmail.com'
                 } )

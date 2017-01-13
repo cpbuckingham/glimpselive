@@ -30,7 +30,7 @@ function authorizedAdmin(req, res, next) {
 }
 
 router.get('/', [authorizedUser, authorizedAdmin], function(req, res, next) {
-  res.render('users/all')
+  res.render('users/auth')
 })
 
 
