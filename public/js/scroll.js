@@ -55,7 +55,7 @@ $(function() {
 
   // Rotate specific elements:
   var rotateElements = function() {
-    rotationDegrees = ($window.scrollTop() / 2.85);
+    rotationDegrees = ($window.scrollTop() / 1.85);
     $rotationElements.css({
       '-ms-transform': 'rotate(' + rotationDegrees + 'deg)',
       '-webkit-transform': 'rotate(' + rotationDegrees + 'deg)',
