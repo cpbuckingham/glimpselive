@@ -22,10 +22,27 @@ function authorizedAdmin(req, res, next) {
   //
 }
 
-router.get('/', function (req, res, next) {
-  let user = req.session.user;
-  res.render('users/auth', {user: user})
+// router.get('/', [authorizedUser], function (req, res, next) {
+//   let user = req.session.user;
+//       res.render('users/auth', {user: user})
+// })
+
+router.get('/', [authorizedUser], function (req, res) {
+  let userID = req.session.user.id;
+  knex('users').where('id', userID).first().then(function (user){
+    knex('posts').where('user_id', userID).then(function (posts){
+      knex('comments').where('user_id', userID).then(function (comments){
+        res.render('users/auth', {
+          user: user,
+          posts: posts,
+          comments: comments,
+        })
+      })
+    })
+  })
 })
+
+
 
 router.get('/signup', function (req, res, next) {
   res.render('users/signup')
