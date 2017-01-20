@@ -1,25 +1,22 @@
 
 <div class="container">
-
 <div class="col-md-4">
   <div class="posts">
 <h2>Posts</h2>
 <hr>
 </div>
-<div class="card">
-<div class="card-header">
 <% posts.forEach(function (post) { %>
-  <h4><%=post.title %></h4>
-</div>
-<div class="card-block">
-    <h4 class="card-title"><%=user.username%></h4>
+  <div class="card">
+  <div class="card-block">
+    <h4 class="card-title"><%=post.title %></h4>
+    <h6 class="card-subtitle mb-2 text-muted"><%=user.username%></h6>
     <p class="card-text"><%=post.body %></p>
-    <a href="/users/<%= user.id %>" class="btn btn-primary">Read more</a>
+    <a href="/users/<%= user.id %>" class="card-link">Single Post</a>
+    <a href="#" class="card-link">Support</a>
+  </div>
 </div>
 <% }) %>
 </div>
-</div>
-
 <div class="col-md-4">
   <div class="posts">
 <h2>Leaders</h2>
@@ -33,5 +30,3 @@
 <hr>
 </div>
 </div>
-
-</html>
