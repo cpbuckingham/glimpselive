@@ -24,7 +24,7 @@ function authorizedAdmin(req, res, next) {
     if(admin.admin){
       next();
     } else {
-      res.render('admin')
+      res.render('admin/admin')
     }
   })
 }

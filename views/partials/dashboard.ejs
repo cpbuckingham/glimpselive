@@ -1,0 +1,37 @@
+
+<div class="container">
+
+<div class="col-md-4">
+  <div class="posts">
+<h2>Posts</h2>
+<hr>
+</div>
+<div class="card">
+<div class="card-header">
+<% posts.forEach(function (post) { %>
+  <h4><%=post.title %></h4>
+</div>
+<div class="card-block">
+    <h4 class="card-title"><%=user.username%></h4>
+    <p class="card-text"><%=post.body %></p>
+    <a href="/users/<%= user.id %>" class="btn btn-primary">Read more</a>
+</div>
+<% }) %>
+</div>
+</div>
+
+<div class="col-md-4">
+  <div class="posts">
+<h2>Leaders</h2>
+<hr>
+</div>
+</div>
+
+<div class="col-md-4">
+  <div class="posts">
+<h2>Streakers</h2>
+<hr>
+</div>
+</div>
+
+</html>
