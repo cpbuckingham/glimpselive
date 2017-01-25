@@ -14,7 +14,7 @@
         <center>
         <img src="<%=user.avatar %>" name="aboutme" width="180" height="180" class="img-circle"></a><h3>Hey, <%=user.username %></h3>
         <a class="btn btn-success" href="/posts" role="button">Create a Post</a>
-        <a class="btn btn-warning" href="/users/<%= user.id %>" role="button">Your Posts</a>
+        <a class="btn btn-warning" href="/users/<%= user.id %>/edit" role="button">Edit Profile</a>
         <a class="btn btn-danger" href="/auth/logout" role="button">Logout</a>
       </center>
     </div>

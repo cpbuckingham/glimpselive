@@ -30,12 +30,15 @@ function authorizedAdmin(req, res, next) {
 router.get('/', [authorizedUser], function (req, res) {
   let userID = req.session.user.id;
   knex('users').where('id', userID).first().then(function (user){
-    knex('posts').where('user_id', userID).then(function (posts){
-      knex('comments').where('user_id', userID).then(function (comments){
-        res.render('users/auth', {
-          user: user,
-          posts: posts,
-          comments: comments,
+    knex('posts').then(function (posts){
+      knex('posts').where('user_id', userID).then(function (my_posts){
+        knex('comments').where('user_id', userID).then(function (comments){
+          res.render('users/auth', {
+            user: user,
+            posts: posts,
+            my_posts: my_posts,
+            comments: comments,
+          })
         })
       })
     })

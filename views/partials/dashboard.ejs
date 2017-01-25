@@ -1,8 +1,7 @@
-
 <div class="container">
 <div class="col-md-4">
   <div class="posts">
-<h2>Posts</h2>
+<h2>All Posts</h2>
 <hr>
 </div>
 <% posts.forEach(function (post) { %>
@@ -19,14 +18,37 @@
 </div>
 <div class="col-md-4">
   <div class="posts">
-<h2>Leaders</h2>
+<h2>My Posts</h2>
+<hr>
+</div>
+<% my_posts.forEach(function (post) { %>
+  <div class="card">
+  <div class="card-block">
+    <h4 class="card-title"><%=post.title %></h4>
+    <p class="card-text"><%=post.body %></p>
+    <a href="/users/<%= user.id %>" class="card-link">Single Post</a>
+    <a href="#" class="card-link">Support</a>
+  </div>
+</div>
+<% }) %>
+</div>
+<div class="col-md-4">
+  <div class="posts">
+<h2>Goals</h2>
 <hr>
 </div>
 </div>
 
 <div class="col-md-4">
   <div class="posts">
-<h2>Streakers</h2>
+<h2>Messages</h2>
+<hr>
+</div>
+</div>
+
+<div class="col-md-4">
+  <div class="posts">
+<h2>Buddies</h2>
 <hr>
 </div>
 </div>
