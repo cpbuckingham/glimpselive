@@ -473,6 +473,7 @@ table {
     margin: .5em 0 0
 }
 
+
 #learn-page h3,
 .topic-link {
     font-weight: 700
@@ -1323,7 +1324,8 @@ h4+p {
 }
 
 section {
-    padding: 0
+    padding: 0;
+    padding-bottom: 50px;
 }
 
 section li,
@@ -1449,7 +1451,8 @@ p+img {
 footer {
     clear: both;
     border-top: .1em dashed;
-    border-top-color: #2D7BB6
+    border-top-color: #2D7BB6;
+    padding: 10px;
 }
 
 .ir {
