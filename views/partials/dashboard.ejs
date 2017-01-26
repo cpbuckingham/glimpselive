@@ -23,12 +23,15 @@
 </div>
 <% my_posts.forEach(function (post) { %>
   <div class="card">
-  <div class="card-block">
+    <a href="/posts/<%= post.id %>">
+    <div class="card-block">
     <h4 class="card-title"><%=post.title %></h4>
     <p class="card-text"><%=post.body %></p>
-    <a href="/users/<%= user.id %>" class="card-link">Single Post</a>
-    <a href="#" class="card-link">Support</a>
-  </div>
+    <form class="" action="/posts/<%= post.id %>?_method=DELETE" method="POST">
+      <input type="submit" value="Delete" class="btn btn-danger btn-lg">
+    </form>
+    </div>
+  </a>
 </div>
 <% }) %>
 </div>

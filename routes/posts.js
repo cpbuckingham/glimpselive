@@ -51,7 +51,7 @@ router.post('/', authorizedUser, function(req, res, next) {
     body: req.body.body,
     user_id: knex.select('id').from('users').where('id', req.session.user.id)
   }).then(function (){
-    res.redirect('/posts')
+    res.redirect('/auth')
   })
 })
 
@@ -118,7 +118,7 @@ router.post('/:id', authorizedUser, function (req, res, next) {
 router.delete('/:id', function (req, res, next) {
   let postID = req.params.id;
   knex('posts').where('id', postID).del().then(function (deleted) {
-    res.redirect('/posts')
+    res.redirect('/auth')
   })
 })
 
