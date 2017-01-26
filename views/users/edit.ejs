@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+  <% include ../partials/head %>
+  <style>
+      img         {
+        position: fixed;
+        z-index: -1!important;
+        opacity: .3;
+      }
+  </style>
+</head>
+<body>
+<div class="container">
+
+<div class="col-sm-6 col-sm-offset-3">
+
+    <!-- LOGIN FORM -->
+    <form action="/users/<%=user.id%>?_method=PUT" method="post">
+      <div class="form-group">
+          <label>Username</label>
+          <input type="text" class="form-control" name="username" id="login-username" placeholder="<%=user.username%>" required>
+      </div>
+      <div class="form-group">
+          <label>First Name</label>
+          <input type="text" class="form-control" name="first_name" id="login-firstname" placeholder="<%=user.first_name%>" required>
+      </div>
+      <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" class="form-control" name="last_name" id="login-lastname" placeholder="<%=user.last_name%>" required>
+      </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" name="email" id="login-email" required>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="hashed_password" id="login-password" required>
+        </div>
+        <div class="form-group">
+            <label>Avatar Link</label>
+            <input type="text" class="form-control" name="avatar" id="login-password" placeholder="<%=user.avatar%>" required>
+        </div>
+        <button type="submit" class="btn btn-warning btn-lg">Edit</button>
+    </form>
+
+</div>
+
+</div>
+</body>
+</html>
