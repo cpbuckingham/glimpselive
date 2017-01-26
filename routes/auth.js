@@ -19,7 +19,12 @@ function authorizedUser(req, res, next) {
 }
 
 function authorizedAdmin(req, res, next) {
-  //
+  let userID = req.session.user.admin === true;
+  if(userID){
+    next();
+  } else {
+    res.redirect('/')
+  }
 }
 
 // router.get('/', [authorizedUser], function (req, res, next) {
@@ -27,7 +32,7 @@ function authorizedAdmin(req, res, next) {
 //       res.render('users/auth', {user: user})
 // })
 
-router.get('/', [authorizedUser], function (req, res) {
+router.get('/', [authorizedUser, authorizedAdmin],  function (req, res) {
   let userID = req.session.user.id;
   knex('users').where('id', userID).first().then(function (user){
     knex('posts').then(function (posts){

@@ -8,25 +8,22 @@ const flash = require('flash');
 
 function authorizedUser(req, res, next) {
   //
-  let userID = req.session.user;
+  let userID = req.session.user.id;
   if(userID){
     next();
   } else {
-    res.render('restricted')
+    res.send('restricted')
   }
 
 }
 
 function authorizedAdmin(req, res, next) {
-  //
-  let userID = req.session.user;
-  knex('users').where('id', userID.id).first().then(function (admin) {
-    if(admin.admin){
-      next();
-    } else {
-      res.render('admin/admin')
-    }
-  })
+  let userID = req.session.user.admin === true;
+  if(userID){
+    next();
+  } else {
+    res.redirect('/')
+  }
 }
 
 router.get('/', [authorizedUser, authorizedAdmin], function(req, res, next) {
@@ -51,10 +48,14 @@ router.get('/:id', [authorizedUser], function (req, res) {
 })
 
 router.get('/:id/edit', authorizedUser, function(req, res, next) {
-  let userID = req.params.id;
-  knex('users').where('id', userID).first().then(function (user){
-        res.render('users/edit', {user: user})
-    })
+  let userID = req.session.user.id;
+  if ( parseInt(req.params.id, 10) === req.session.user.id){
+    knex('users').where('id', userID).first().then(function (user){
+          res.render('users/edit', {user: user})
+        })
+      }else{
+    res.send("403")
+  }
   })
 
 
