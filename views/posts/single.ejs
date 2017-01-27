@@ -3,14 +3,14 @@
 <head>
   <% include ../partials/head %>
   <style>
-      body        { padding-top:80px; }
+      body        { padding-top:50px; }
   </style>
 </head>
 <div class="container">
 <div class="col-sm-6 col-sm-offset-3">
 <body>
-    <h3>Title: <%= post.title %></h3>
-    <h3>Body: <%= post.body %></h3>
+    <h3><u>Title</u>: <%= post.title %></h3>
+    <h3><u>Body</u>: <%= post.body %></h3>
 
 
   <% if(data.length === 0) { %>
@@ -22,27 +22,17 @@
     <% }) %>
     <% } %>
     <p></p>
-    <form action="/posts/<%=postID %>" method="post">
-
+  </ul>
+    <form action="/posts/<%=postID %>" style="float:left;"  method="post">
       <label for="content">Comment:</label>
       <p>
-        <textarea name="content" rows="8" cols="40" required=""></textarea>
+        <textarea name="content" rows="6" cols="40" required=""></textarea>
       </p>
-      <input type="submit" class="btn btn-success btn-lg">
+      <input type="submit" style="float:right;" class="btn btn-success btn-lg">
     </form>
-    <hr>
-
-    <form class="" action="/posts/<%= post.id %>?_method=DELETE" method="POST">
-      <input type="submit" value="Delete" class="btn btn-danger btn-lg">
-    </form>
-    <hr>
-
-    <form class="" action="/posts/<%= post.id %>/edit" method="GET">
-      <input type="submit" value="Edit" class="btn btn-warning btn-lg">
-    </form>
-  </ul>
-  <hr>
-  <a href="/auth">home</a>
+      <form action="/posts/<%= post.id %>/edit" method="GET">
+        <input type="submit" value="Edit" class="btn btn-warning btn-lg">
+      </form>
 </div>
 </div>
 </body>

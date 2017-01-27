@@ -1,19 +1,27 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+<style>
+a:link, p {
+  text-decoration: none;
+  color:black;
+}
+</style>
 <div class="container">
+  <div class="row">
 <div class="col-md-4">
   <div class="posts">
 <h2>All Posts</h2>
 <hr>
 </div>
 <% posts.forEach(function (post) { %>
+  <a href="/posts/<%= post.id %>">
   <div class="card">
   <div class="card-block">
     <h4 class="card-title"><%=post.title %></h4>
     <h6 class="card-subtitle mb-2 text-muted"><%=user.username%></h6>
     <p class="card-text"><%=post.body %></p>
-    <a href="/users/<%= user.id %>" class="card-link">Single Post</a>
-    <a href="#" class="card-link">Support</a>
   </div>
 </div>
+</a>
 <% }) %>
 </div>
 <div class="col-md-4">
@@ -26,13 +34,10 @@
     <a href="/posts/<%= post.id %>">
     <div class="card-block">
     <p class="card-text"><%=post.body %></p>
-    <form class="" action="/posts/<%= post.id %>?_method=DELETE" method="POST">
-      <input type="submit" value="Delete" class="btn btn-danger btn-lg">
-    </form>
-    </div>
+        <% }) %>
+      </div>
   </a>
 </div>
-<% }) %>
 </div>
 <div class="col-md-4">
   <div class="posts">
@@ -52,5 +57,7 @@
   <div class="posts">
 <h2>Buddies</h2>
 <hr>
+</div>
+</div>
 </div>
 </div>
