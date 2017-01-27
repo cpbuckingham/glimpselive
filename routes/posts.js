@@ -51,23 +51,23 @@ router.post('/', authorizedUser, function(req, res, next) {
     body: req.body.body,
     user_id: knex.select('id').from('users').where('id', req.session.user.id)
   }).then(function (){
-    res.redirect('/auth')
+    res.redirect('/posts')
   })
 })
 
 
 router.get('/:id', function (req, res, next) {
   let postID = req.params.id;
+  let userID = req.session.user.id;
   knex('posts').where('id', postID).first().then(function (post) {
     // console.log(post);
     return post;
   })
   .then(function (post) {
     knex('users').innerJoin('comments', 'users.id', 'comments.user_id').where('comments.post_id', postID).then(function (data) {
-      console.log("post: " + post.body);
-      // console.log("data: " + data);
       res.render('posts/single', {
         postID: postID,
+        userID: userID,
         post: post,
         data: data
       })
@@ -118,7 +118,7 @@ router.post('/:id', authorizedUser, function (req, res, next) {
 router.delete('/:id', function (req, res, next) {
   let postID = req.params.id;
   knex('posts').where('id', postID).del().then(function (deleted) {
-    res.redirect('/auth')
+    res.redirect('/posts')
   })
 })
 

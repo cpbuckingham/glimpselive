@@ -31,6 +31,14 @@
       </p>
       <input type="submit" class="btn btn-success">
     </form>
+    <% if(post.user_id === userID) { %>
+    <hr>
+    <form action="/posts/<%=postID %>/edit"method="get">
+      <input type="submit" class="btn btn-warning" value="Edit">
+    </form>
+    <% } %>
+    <hr>
+    <p><a href="/auth">home</a></p>
 </div>
 </div>
 </body>
