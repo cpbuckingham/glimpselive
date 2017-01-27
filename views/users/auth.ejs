@@ -1,10 +1,17 @@
 <!doctype html>
 <html>
 <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
   <% include ../partials/head_auth %>
   <style>
+  body{
+     padding-bottom:80px; }
   .posts{
     text-align: center;
+  }
+  a:link, a:hover, p {
+    text-decoration: none;
+    color:black;
   }
   </style>
 </head>
@@ -15,10 +22,65 @@
         <img src="<%=user.avatar %>" name="aboutme" width="180" height="180" class="img-circle"></a><h3>Hey, <%=user.username %></h3>
         <a class="btn btn-success" href="/posts/new" role="button">Create a Post</a>
         <a class="btn btn-warning" href="/users/<%= user.id %>/edit" role="button">Edit Profile</a>
+        <a class="btn btn-primary" href="/users/<%= user.id %>/edit" role="button">Messages</a>
         <a class="btn btn-danger" href="/auth/logout" role="button">Logout</a>
       </center>
     </div>
   </div>
-<% include ../partials/dashboard %>
+
+  <div class="container">
+    <div class="row">
+  <div class="col-md-4">
+    <div class="posts">
+  <h2>All Posts</h2>
+  <hr>
+  </div>
+  <% posts.forEach(function (post) { %>
+    <a href="/posts/<%= post.id %>">
+    <div class="card">
+    <div class="card-block">
+      <h4 class="card-title"><%=post.title %></h4>
+      <h6 class="card-subtitle mb-2 text-muted"><%=user.username%></h6>
+      <p class="card-text"><%=post.body %></p>
+    </div>
+  </div>
+  </a>
+  <% }) %>
+  </div>
+  <div class="col-md-4">
+    <div class="posts">
+  <h2>My Posts</h2>
+  <hr>
+  </div>
+  <% my_posts.forEach(function (post) { %>
+    <div class="card">
+      <a href="/posts/<%= post.id %>">
+      <div class="card-block">
+      <p class="card-text"><%=post.body %></p>
+        </div>
+    </a>
+  </div>
+  <% }) %>
+  </div>
+  <div class="col-md-4">
+    <div class="posts">
+  <h2>Goals</h2>
+  <hr>
+</div>
+  <div class="span3 well">
+        <p>1. <%= user.goal1 %></p>
+        <p>2. <%= user.goal2 %></p>
+        <p>3. <%= user.goal3 %></p>
+  </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="posts">
+  <h2>Buddies</h2>
+  <hr>
+  </div>
+  </div>
+  </div>
+  </div>
 </body>
 </html>

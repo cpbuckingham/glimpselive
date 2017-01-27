@@ -69,6 +69,9 @@ router.put('/:id', authorizedUser,function (req, res, next) {
     last_name: req.body.last_name,
     email: req.body.email,
     avatar: req.body.avatar,
+    goal1: req.body.goal1,
+    goal2: req.body.goal2,
+    goal3: req.body.goal3,
   }).then(function (){
     res.redirect('/auth')
 

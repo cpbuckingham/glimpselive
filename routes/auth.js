@@ -32,7 +32,7 @@ function authorizedAdmin(req, res, next) {
 //       res.render('users/auth', {user: user})
 // })
 
-router.get('/', [authorizedUser, authorizedAdmin],  function (req, res) {
+router.get('/', authorizedUser,  function (req, res) {
   let userID = req.session.user.id;
   knex('users').where('id', userID).first().then(function (user){
     knex('posts').then(function (posts){

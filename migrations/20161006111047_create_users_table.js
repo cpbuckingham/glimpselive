@@ -9,6 +9,9 @@ exports.up = function(knex, Promise) {
       table.string('email').unique();
       table.string('hashed_password');
       table.string('avatar');
+      table.string('goal1');
+      table.string('goal2');
+      table.string('goal3');
       table.timestamps(true, true);
     })
 };

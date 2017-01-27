@@ -11,10 +11,11 @@
 <body>
     <h3><u>Title</u>: <%= post.title %></h3>
     <h3><u>Body</u>: <%= post.body %></h3>
+    <hr>
 
 
   <% if(data.length === 0) { %>
-    <h5>there are no comments</h5>
+    <center><h5>there are no comments</h5></center>
     <% } else { %>
     <ul>
     <% data.forEach(function(comment) { %>
@@ -23,16 +24,13 @@
     <% } %>
     <p></p>
   </ul>
-    <form action="/posts/<%=postID %>" style="float:left;"  method="post">
+    <form action="/posts/<%=postID %>"method="post">
       <label for="content">Comment:</label>
       <p>
-        <textarea name="content" rows="6" cols="40" required=""></textarea>
+        <textarea name="content" rows="4" cols="30"></textarea>
       </p>
-      <input type="submit" style="float:right;" class="btn btn-success btn-lg">
+      <input type="submit" class="btn btn-success">
     </form>
-      <form action="/posts/<%= post.id %>/edit" method="GET">
-        <input type="submit" value="Edit" class="btn btn-warning btn-lg">
-      </form>
 </div>
 </div>
 </body>
