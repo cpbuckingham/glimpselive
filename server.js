@@ -22,6 +22,8 @@ const auth = require('./routes/auth');
 const posts = require('./routes/posts');
 const about = require('./routes/about');
 const blog = require('./routes/blog');
+const messages = require('./routes/messages');
+const buddies = require('./routes/buddies');
 
 
 // Use Middlewares
@@ -41,6 +43,8 @@ app.use('/auth', auth);
 app.use('/posts', posts);
 app.use('/about', about);
 app.use('/blog', blog);
+app.use('/messages', messages);
+app.use('/buddies', buddies);
 
 app.listen(port, function () {
   console.log('hello from', port);
