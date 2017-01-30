@@ -13,10 +13,10 @@ router.get('/:id', function (req, res, next) {
   res.render('buddies/single')
 })
 
-router.post('/', function(req, res, next) {
-  knex('messages').insert({
-    requester_id: req.session.user.id,
-    user_id: req.query.id
+router.post('/:id', function(req, res, next) {
+  knex('buddies').insert({
+    buddy_id: req.params.id,
+    user_id: req.session.user.id
   }).then(function (){
     res.redirect('/auth')
   })

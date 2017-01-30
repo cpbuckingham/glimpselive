@@ -13,7 +13,10 @@ exports.seed = function ( knex, Promise ) {
                     hashed_password: '$2a$12$2fPhX9qJCLlVi0uXxttKPOhdHlC1x0THSLz5A1sjxVoZ5l6/C01ZK',
                     //password = test
                     avatar: 'https://octodex.github.com/images/homercat.png',
-                    email: 'cam@gmail.com'
+                    email: 'cam@gmail.com',
+                    goal1: "I want to be able to do 40 pull-ups in a minute",
+                    goal2: "I want to sleep for more than 8 hours a night",
+                    goal3: "Lose 10 lbs over the next 6 months"
                 } ),
                 knex( 'users' ).insert( {
                     id: 2,
@@ -24,7 +27,10 @@ exports.seed = function ( knex, Promise ) {
                     hashed_password: '$2a$12$2fPhX9qJCLlVi0uXxttKPOhdHlC1x0THSLz5A1sjxVoZ5l6/C01ZK',
                     //password = test
                     avatar: 'https://octodex.github.com/images/octocat-de-los-muertos.jpg',
-                    email: 'jam@gmail.com'
+                    email: 'jam@gmail.com',
+                    goal1: "I want to be able to do 40 pull-ups in a minute",
+                    goal2: "I want to sleep for more than 8 hours a night",
+                    goal3: "Lose 10 lbs over the next 6 months"
                 } ),
                 knex( 'users' ).insert( {
                     id: 3,
@@ -35,7 +41,10 @@ exports.seed = function ( knex, Promise ) {
                     hashed_password: '$2a$12$2fPhX9qJCLlVi0uXxttKPOhdHlC1x0THSLz5A1sjxVoZ5l6/C01ZK',
                     //password = test
                     avatar: 'https://octodex.github.com/images/filmtocat.png',
-                    email: 'bam@gmail.com'
+                    email: 'bam@gmail.com',
+                    goal1: "I want to be able to do 40 pull-ups in a minute",
+                    goal2: "I want to sleep for more than 8 hours a night",
+                    goal3: "Lose 10 lbs over the next 6 months"
                 } )
             ] );
         } );

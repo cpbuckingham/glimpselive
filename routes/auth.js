@@ -38,12 +38,16 @@ router.get('/', authorizedUser,  function (req, res) {
     knex('posts').then(function (posts){
       knex('posts').where('user_id', userID).then(function (my_posts){
         knex('comments').where('user_id', userID).then(function (comments){
+          knex('users').innerJoin('buddies', 'users.id', 'buddies.user_id').then(function(buddies) {
+            console.log(buddies);
           res.render('users/auth', {
             user: user,
             posts: posts,
             my_posts: my_posts,
             comments: comments,
+            buddies: buddies,
           })
+        })
         })
       })
     })

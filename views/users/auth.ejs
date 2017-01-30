@@ -79,16 +79,12 @@
   <h2>Buddies</h2>
   <hr>
   </div>
-
+  <% buddies.forEach(function (buddy) { %>
+    <%=JSON.stringify(buddies)%>
       <div class="span3 well">
-        <a href="/users/<%=user.id%>"><img src="<%=user.avatar %>" width="40" height="40" class="img-circle"><h3 style="float:right;margin:0;"><%=user.username %></h3></a>
+        <img src="<%=buddy.avatar%>" width="40" height="40" class="img-circle"><h3 style="float:right;margin:0;"><%=buddy.username %></h3>
       </div>
-      <div class="span3 well">
-        <img src="<%=user.avatar %>" width="40" height="40" class="img-circle"><h3 style="float:right;margin:0;"><%=user.username %></h3>
-      </div>
-      <div class="span3 well">
-        <img src="<%=user.avatar %>" width="40" height="40" class="img-circle"><h3 style="float:right;margin:0;"><%=user.username %></h3>
-      </div>
+      <% }) %>
 
   </div>
   </div>

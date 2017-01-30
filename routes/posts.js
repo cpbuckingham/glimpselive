@@ -37,6 +37,7 @@ function authorizedAdmin(req, res, next) {
 
 router.get('/', function (req, res, next) {
   knex('users').innerJoin('posts', 'users.id', 'posts.user_id').then(function(posts) {
+    console.log(posts);
     res.render('posts/posts', {posts: posts});
   })
 })
@@ -65,6 +66,7 @@ router.get('/:id', function (req, res, next) {
   })
   .then(function (post) {
     knex('users').innerJoin('comments', 'users.id', 'comments.user_id').where('comments.post_id', postID).then(function (data) {
+      console.log(data)
       res.render('posts/single', {
         postID: postID,
         userID: userID,

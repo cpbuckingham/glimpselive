@@ -17,15 +17,21 @@
 </head>
 <body>
   <div class="container_auth">
+    <% if(current_user === user.id){ %>
+      <h1>hi, <%=user.username%></h1>
+      <% }else{ %>
     <div class="span3 well">
         <center>
         <img src="<%=user.avatar %>" name="aboutme" width="180" height="180" class="img-circle"></a><h3><%=user.username %></h3>
         <!-- Needs a form here -->
-        <a class="btn btn-success" href="/posts/new" role="button">Buddy up</a>
+        <form action="/buddies/<%=user.id %>" method="post">
+            <button type="submit" class="btn btn-success">Buddy Up</button>
+        </form>
         <a class="btn btn-primary" href="/messages/new" role="button">Message them</a>
       </center>
     </div>
   </div>
+  <% } %>
 
   <div class="container">
     <div class="row">

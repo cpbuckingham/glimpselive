@@ -33,6 +33,7 @@ router.get('/', [authorizedUser, authorizedAdmin], function(req, res, next) {
 
 //This should show users info, posts, and comments
 router.get('/:id', authorizedUser, function (req, res) {
+  let current_user = req.session.user.id;
   let userID = req.params.id;
   knex('users').where('id', userID).first().then(function (user){
     knex('posts').where('user_id', userID).then(function (posts){
@@ -41,6 +42,7 @@ router.get('/:id', authorizedUser, function (req, res) {
           user: user,
           posts: posts,
           comments: comments,
+          current_user: current_user,
         })
       })
     })
