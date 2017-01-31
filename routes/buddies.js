@@ -22,4 +22,11 @@ router.post('/:id', function(req, res, next) {
   })
 })
 
+router.delete('/:id', function (req, res, next) {
+  let buddyID = req.params.id;
+  knex('buddies').where('buddy_id', buddyID).del().then(function (deleted) {
+    res.redirect('/auth')
+  })
+})
+
 module.exports = router

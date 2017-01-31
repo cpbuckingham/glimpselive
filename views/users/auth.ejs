@@ -80,10 +80,9 @@
   <hr>
   </div>
   <% buddies.forEach(function (buddy) { %>
-    <%=JSON.stringify(buddies)%>
-      <div class="span3 well">
+      <a href="/users/<%=buddy.id%>"><div class="span3 well">
         <img src="<%=buddy.avatar%>" width="40" height="40" class="img-circle"><h3 style="float:right;margin:0;"><%=buddy.username %></h3>
-      </div>
+      </div></a>
       <% }) %>
 
   </div>

@@ -38,11 +38,15 @@ router.get('/:id', authorizedUser, function (req, res) {
   knex('users').where('id', userID).first().then(function (user){
     knex('posts').where('user_id', userID).then(function (posts){
       knex('comments').where('user_id', userID).then(function (comments){
+        knex('users').where('id', 'in', knex.select('buddy_id').from('buddies').where('user_id', userID)).then(function (buddies){
         res.render('users/single', {
           user: user,
           posts: posts,
           comments: comments,
           current_user: current_user,
+          buddies: buddies,
+          userID: userID
+          })
         })
       })
     })

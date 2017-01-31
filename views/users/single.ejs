@@ -17,21 +17,24 @@
 </head>
 <body>
   <div class="container_auth">
-    <% if(current_user === user.id){ %>
-      <h1>hi, <%=user.username%></h1>
-      <% }else{ %>
     <div class="span3 well">
         <center>
-        <img src="<%=user.avatar %>" name="aboutme" width="180" height="180" class="img-circle"></a><h3><%=user.username %></h3>
+        <a href="/auth"><img src="<%=user.avatar %>" name="aboutme" width="180" height="180" class="img-circle"></a><h3><%=user.username %></h3></a>
         <!-- Needs a form here -->
-        <form action="/buddies/<%=user.id %>" method="post">
-            <button type="submit" class="btn btn-success">Buddy Up</button>
-        </form>
+        <% if(current_user !== user.id){ %>
+            <form action="/buddies/<%=user.id %>?_method=DELETE" method="POST">
+                <button type="submit" class="btn btn-danger">Buddy Down</button>
+            </form>
+            <br>
+            <form action="/buddies/<%=user.id %>" method="post">
+              <button type="submit" class="btn btn-success">Buddy Up</button>
+            </form>
+        <br>
         <a class="btn btn-primary" href="/messages/new" role="button">Message them</a>
       </center>
     </div>
+    <% } %>
   </div>
-  <% } %>
 
   <div class="container">
     <div class="row">
@@ -69,16 +72,11 @@
   <h2>Buddies</h2>
   <hr>
   </div>
-
-      <div class="span3 well">
-        <img src="<%=user.avatar %>" width="40" height="40" class="img-circle"><h3 style="float:right;margin:0;"><%=user.username %></h3>
-      </div>
-      <div class="span3 well">
-        <img src="<%=user.avatar %>" width="40" height="40" class="img-circle"><h3 style="float:right;margin:0;"><%=user.username %></h3>
-      </div>
-      <div class="span3 well">
-        <img src="<%=user.avatar %>" width="40" height="40" class="img-circle"><h3 style="float:right;margin:0;"><%=user.username %></h3>
-      </div>
+  <% buddies.forEach(function (buddy) { %>
+      <a href="/users/<%=buddy.id%>"><div class="span3 well">
+        <img src="<%=buddy.avatar%>" width="40" height="40" class="img-circle"><h3 style="float:right;margin:0;"><%=buddy.username %></h3>
+      </div></a>
+      <% }) %>
 
   </div>
   </div>
