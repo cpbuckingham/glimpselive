@@ -11,6 +11,7 @@
   <div class="col-sm-6 col-sm-offset-3">
   <h2>Here are all the posts</h2>
   <ul>
+
   <% posts.forEach(function (post) { %>
     <li><a href="/posts/<%= post.id %>"><%=post.title  %></a> - <%=post.username %></li>
   <% }) %>
