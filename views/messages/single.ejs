@@ -1,1 +1,22 @@
-<h1> This is one message</h1>
+<!doctype html>
+<html>
+<head>
+  <% include ../partials/head %>
+  <style>
+      body        { padding-top:50px; }
+  </style>
+</head>
+
+
+<div class="container">
+<div class="col-sm-6 col-sm-offset-3">
+<body>
+    <h3><u>Note</u>: <%= message.note %></h3>
+    <h3><u>From</u>: <a href="/users/<%=message.user_id%>"><%=message.username %></a></h3>
+    <hr>
+    <p><a href="/auth">home</a></p>
+</div>
+</div>
+</body>
+
+</html>

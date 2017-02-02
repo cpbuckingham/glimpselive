@@ -35,7 +35,7 @@ function authorizedAdmin(req, res, next) {
 router.get('/', authorizedUser,  function (req, res) {
   let userID = req.session.user.id;
   knex('users').where('id', userID).first().then(function (user){
-    knex('posts').then(function (posts){
+     knex('posts').then(function (posts){
       knex('posts').where('user_id', userID).then(function (my_posts){
         knex('comments').where('user_id', userID).then(function (comments){
          knex('users').where('id', 'in', knex.select('buddy_id').from('buddies').where('user_id', userID)).then(function (buddies){
@@ -112,7 +112,7 @@ router.post('/login', function (req, res, next) {
 router.get('/logout', function (req, res) {
   req.session = null;
   res.clearCookie('loggedin');
-  res.redirect('/auth/login');
+  res.redirect('/');
 })
 
 
