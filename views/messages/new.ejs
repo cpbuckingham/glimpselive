@@ -19,6 +19,13 @@
     <form action="/messages" method="post">
         <div class="form-group">
           <br>
+          <select name="dropdownuser">
+            <% users.forEach(function (user) { %>
+            <p>For: <option><%=user.id%></option></p>
+            <% }) %>
+          </select>
+          <br>
+          <br>
             <input type="text" size="400" class="form-control" name="note" required>
         </div>
         <button type="submit" class="btn btn-success btn-lg">Submit</button>

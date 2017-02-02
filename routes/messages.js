@@ -6,13 +6,22 @@ const knex = require('../db/knex');
 
 router.get('/', function (req, res, next) {
   let userID = req.session.user.id;
-  knex('users').where('id', userID).first().then(function (user){
-    res.render('messages/all', {user:user})
+  knex('users').where('id', userID).first().then(function (users){
+    knex('messages').innerJoin('users', 'users.id', 'messages.sender_id').where('messages.sender_id', userID).then(function (messages) {
+    res.render('messages/all', {
+      users:users,
+      messages:messages
+  })
+})
 })
 })
 
 router.get('/new', function (req, res, next) {
-  res.render('messages/new')
+  knex('users').then(function (users){
+  res.render('messages/new',{
+    users:users
+  } )
+})
 })
 
 router.get('/:id', function (req, res, next) {
@@ -25,7 +34,7 @@ router.post('/', function(req, res, next) {
   knex('messages').insert({
     note: req.body.note,
     sender_id: req.session.user.id,
-    user_id: req.body.dropdownuser.id
+    user_id: req.body.dropdownuser
   }).then(function (){
     res.redirect('/auth')
   })

@@ -2,21 +2,27 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
   <% include ../partials/head_auth %>
 </head>
+<style>
+body{
+   padding-bottom:80px; }
+a:link, a:hover, p {
+  text-decoration: none;
+  color:black;
+}
+</style>
 <div class="container">
   <div class="col-sm-6 col-sm-offset-3">
   <div class="posts">
 <h2>Messages</h2>
 <hr>
 </div>
+<% messages.forEach(function (message) { %>
+<a href="/messages/<%=message.id%>">
     <div class="span3 well">
-      <img src="<%=user.avatar %>" width="40" height="40" class="img-circle"><h3 style="float:right;margin:0;"><%=user.username %></h3>
+      <img src="<%=message.avatar%>" width="40" height="40" class="img-circle"><h3 style="float:right;margin:0;"><%=message.sender_id %></h3>
     </div>
-    <div class="span3 well">
-      <img src="<%=user.avatar %>" width="40" height="40" class="img-circle"><h3 style="float:right;margin:0;"><%=user.username %></h3>
-    </div>
-    <div class="span3 well">
-      <img src="<%=user.avatar %>" width="40" height="40" class="img-circle"><h3 style="float:right;margin:0;"><%=user.username %></h3>
-    </div>
+    <% }) %>
+    </a>
     <a class="btn btn-success" href="/messages/new" role="button">New Message</a>
 </div>
 </div>
