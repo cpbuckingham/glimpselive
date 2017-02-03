@@ -17,7 +17,7 @@ function authorizedUser(req, res, next) {
 router.get('/' , authorizedUser , function (req, res, next) {
   let userID = req.session.user.id;
   knex('users').where('id', userID).first().then(function (users){
-    knex('messages').innerJoin('users', 'users.id', 'messages.sender_id').where('messages.user_id', userID).then(function (messages) {
+    knex.from('users').innerJoin('messages', 'users.id', 'messages.sender_id').where('messages.user_id', userID).then(function (messages) {
     res.render('messages/all', {
       users:users,
       messages:messages
@@ -30,9 +30,8 @@ router.get('/' , authorizedUser , function (req, res, next) {
 router.get('/new', function (req, res, next) {
   knex('users').then(function (users){
   res.render('messages/new',{
-    users:users
-  } )
-  console.log(users);
+    users:users,
+  })
 })
 })
 
@@ -41,6 +40,7 @@ router.get('/:id', function (req, res, next) {
   let userID = req.session.user.id;
   knex('messages').innerJoin('users', 'users.id', 'messages.sender_id').where('messages.id', messageID).first().then(function (message) {
     res.render('messages/single', {message:message})
+    console.log(message)
 })
 })
 
@@ -48,7 +48,7 @@ router.post('/', function(req, res, next) {
   knex('messages').insert({
     note: req.body.note,
     sender_id: req.session.user.id,
-    user_id: req.body.dropdownuser
+    user_id: knex('users').where('username', req.body.dropdownuser).select('id')
   }).then(function (){
     res.redirect('/auth')
   })
