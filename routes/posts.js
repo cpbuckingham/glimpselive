@@ -52,7 +52,7 @@ router.post('/', authorizedUser, function(req, res, next) {
     body: req.body.body,
     user_id: knex.select('id').from('users').where('id', req.session.user.id)
   }).then(function (){
-    res.redirect('/posts')
+    res.redirect('/auth')
   })
 })
 
@@ -67,13 +67,13 @@ router.get('/:id', function (req, res, next) {
   .then(function (post) {
     knex('users').innerJoin('comments', 'users.id', 'comments.user_id').where('comments.post_id', postID).then(function (data) {
       // console.log(data)
-      console.log(data)
       res.render('posts/single', {
         postID: postID,
         userID: userID,
         post: post,
         data: data,
       })
+      console.log(data);
     })
   })
 
