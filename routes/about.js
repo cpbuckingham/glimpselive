@@ -6,4 +6,5 @@ router.get('/', function (req, res, next) {
   res.render('about/about')
 })
 
+
 module.exports = router
