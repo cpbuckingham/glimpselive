@@ -1,30 +1,20 @@
 'use strict'
 
-
 const express = require('express');
 const router = express.Router();
-
-//This is where you get the params.
-// const router = express.Router({
-//   mergeParams: true
-// })
 const knex = require('../db/knex');
 const bcrypt = require('bcrypt');
-const flash = require('flash');
 
 function authorizedUser(req, res, next) {
-  //
   let userID = req.session.user;
   if(userID){
     next();
   } else {
     res.render('admin/restricted')
   }
-
 }
 
 function authorizedAdmin(req, res, next) {
-  //
   let userID = req.session.user;
   knex('users').where('id', userID.id).first().then(function (admin) {
     if(admin.admin){
@@ -37,7 +27,6 @@ function authorizedAdmin(req, res, next) {
 
 router.get('/', function (req, res, next) {
   knex('users').innerJoin('posts', 'users.id', 'posts.user_id').then(function(posts) {
-    console.log(posts);
     res.render('posts/posts', {posts: posts});
   })
 })
@@ -56,17 +45,14 @@ router.post('/', authorizedUser, function(req, res, next) {
   })
 })
 
-
 router.get('/:id', function (req, res, next) {
   let postID = req.params.id;
   let userID = req.session.user.id;
   knex('posts').where('id', postID).first().then(function (post) {
-    // console.log(post);
     return post;
   })
   .then(function (post) {
     knex('users').innerJoin('comments', 'users.id', 'comments.user_id').where('comments.post_id', postID).then(function (data) {
-       console.log(post)
       res.render('posts/single', {
         postID: postID,
         userID: userID,
@@ -90,20 +76,7 @@ router.get('/:id', function (req, res, next) {
         comment:comment
       })
     })
-
   })
-
-  // knex('users').select(['users.username', 'posts.title', 'posts.body', 'comments.content'])
-  //             .where('posts.id', postID)
-  //             .innerJoin('posts', 'users.id', 'posts.user_id')
-  //             .innerJoin('comments', 'users.id', 'comments.user_id')
-  //             .then(function (post) {
-  //                 console.log(post);
-  //                 res.render('single', {
-  //                   post:post,
-  //                   postID: postID
-  //                 })
-  //               })
 })
 
 router.post('/:id', authorizedUser, function (req, res, next) {
@@ -142,4 +115,5 @@ router.put(':id/comments', function (req, res, next) {
     res.redirect('/posts/' + postID)
   })
 })
+
 module.exports = router;

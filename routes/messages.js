@@ -1,11 +1,10 @@
 'use strict';
+
 const express = require('express');
 const router = express.Router();
-
 const knex = require('../db/knex');
 
 function authorizedUser(req, res, next) {
-  //
   let userID = req.session.user.id;
   if(userID){
     next();
@@ -21,18 +20,17 @@ router.get('/' , authorizedUser , function (req, res, next) {
     res.render('messages/all', {
       users:users,
       messages:messages
+      })
+    })
   })
-  console.log(messages);
-})
-})
 })
 
 router.get('/new', function (req, res, next) {
   knex('users').then(function (users){
   res.render('messages/new',{
     users:users,
+    })
   })
-})
 })
 
 router.get('/:id', function (req, res, next) {
@@ -40,8 +38,7 @@ router.get('/:id', function (req, res, next) {
   let userID = req.session.user.id;
   knex('messages').innerJoin('users', 'users.id', 'messages.sender_id').where('messages.id', messageID).first().then(function (message) {
     res.render('messages/single', {message:message})
-    console.log(message)
-})
+  })
 })
 
 router.post('/', function(req, res, next) {

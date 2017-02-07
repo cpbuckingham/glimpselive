@@ -7,14 +7,12 @@ const bcrypt = require('bcrypt');
 const flash = require('flash');
 
 function authorizedUser(req, res, next) {
-  //
   let userID = req.session.user.id;
   if(userID){
     next();
   } else {
     res.send('restricted')
   }
-
 }
 
 function authorizedAdmin(req, res, next) {
@@ -30,8 +28,6 @@ router.get('/', [authorizedUser, authorizedAdmin], function(req, res, next) {
   res.render('users/auth')
 })
 
-
-//This should show users info, posts, and comments
 router.get('/:id', authorizedUser, function (req, res) {
   let current_user = req.session.user.id;
   let userID = req.params.id;
@@ -61,9 +57,8 @@ router.get('/:id/edit', authorizedUser, function(req, res, next) {
         })
       }else{
     res.send("403")
-  }
+    }
   })
-
 
 router.put('/:id', authorizedUser,function (req, res, next) {
   let userID = req.params.id;
@@ -80,7 +75,6 @@ router.put('/:id', authorizedUser,function (req, res, next) {
     goal3: req.body.goal3,
   }).then(function (){
     res.redirect('/auth')
-
   } )
 })
 
