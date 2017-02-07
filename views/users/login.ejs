@@ -1,7 +1,8 @@
 <!doctype html>
 <html>
-<head>
+
   <% include ../partials/head %>
+
   <style>
       body        { padding-top:80px; }
       img         {
@@ -10,13 +11,10 @@
         opacity: .3;
       }
   </style>
-</head>
+
 <body>
 <div class="container">
-
 <div class="col-sm-6 col-sm-offset-3">
-
-    <!-- LOGIN FORM -->
     <form action="/auth/login" method="post">
         <div class="form-group">
             <label>Username</label>
@@ -26,17 +24,12 @@
             <label>Password</label>
             <input type="password" class="form-control" name="hashed_password" id="login-password" required>
         </div>
-
         <button type="submit" class="btn btn-warning btn-lg">Login</button>
     </form>
-
     <hr>
-
     <p>Need an account? <a href="/auth/signup">Sign up</a></p>
     <p>Or go <a href="/">home</a></p>
-
 </div>
-
 </div>
 </body>
 </html>

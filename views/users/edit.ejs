@@ -1,7 +1,8 @@
 <!doctype html>
 <html>
-<head>
+
   <% include ../partials/head %>
+
   <style>
       img         {
         position: fixed;
@@ -9,13 +10,10 @@
         opacity: .3;
       }
   </style>
-</head>
+
 <body>
 <div class="container">
-
 <div class="col-sm-6 col-sm-offset-3">
-
-    <!-- LOGIN FORM -->
     <form action="/users/<%=user.id%>?_method=PUT" method="post">
       <div class="form-group">
           <label>Username</label>
@@ -57,9 +55,7 @@
     </form>
     <hr>
     <p><a href="/auth">home</a></p>
-
 </div>
-
 </div>
 </body>
 </html>

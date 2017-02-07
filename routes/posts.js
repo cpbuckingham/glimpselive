@@ -72,7 +72,7 @@ router.get('/:id', function (req, res, next) {
   router.get('/:id/comment/edit', authorizedUser, function (req, res, next) {
     let postID = req.params.id;
     knex('comments').where('post_id', postID).first().then(function(comment) {
-      res.render('comments/editcomment', {
+      res.render('comments/edit', {
         comment:comment
       })
     })
