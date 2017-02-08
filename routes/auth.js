@@ -60,7 +60,7 @@ router.post('/signup', function (req, res, next) {
     if(!user){
       let hash = bcrypt.hashSync(req.body.hashed_password, 12);
       createAvatar.generateAvatar(function(created_avatar){
-        knex('users').insert({
+        return knex('users').insert({
           username: req.body.username,
           hashed_password: hash,
           first_name: req.body.first_name,
@@ -68,6 +68,11 @@ router.post('/signup', function (req, res, next) {
           email: req.body.email,
           admin: req.body.admin,
           avatar: created_avatar,
+        }, "*").then(function (users) {
+          return knex('buddies').insert({
+            buddy_id: 1,
+            user_id: users[0].id,
+          })
         }).then(function (){
           res.redirect('/auth/login');
         })

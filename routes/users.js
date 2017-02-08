@@ -30,11 +30,12 @@ router.get('/', [authorizedUser, authorizedAdmin], function(req, res, next) {
 
 router.get('/:id', authorizedUser, function (req, res) {
   let current_user = req.session.user.id;
-  let userID = req.params.id;
+  let userID = parseInt(req.params.id, 10);
   knex('users').where('id', userID).first().then(function (user){
     knex('posts').where('user_id', userID).then(function (posts){
       knex('comments').where('user_id', userID).then(function (comments){
           knex('users').where('id', 'in', knex.select('buddy_id').from('buddies').where('user_id', userID)).then(function (buddies){
+            knex('buddies').where('user_id', current_user).then(function (buddyCheck){
             res.render('users/single', {
           user: user,
           posts: posts,
@@ -42,6 +43,8 @@ router.get('/:id', authorizedUser, function (req, res) {
           current_user: current_user,
           buddies: buddies,
           userID: userID,
+          buddyCheck: buddyCheck,
+            })
           })
         })
       })
