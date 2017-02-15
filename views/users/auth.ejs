@@ -13,6 +13,12 @@
     text-decoration: none;
     color:black;
   }
+  .container-fluid {
+  padding-right: 75px;
+  padding-left: 75px;
+  margin-right: auto;
+  margin-left: auto;
+}
   </style>
 
 <body>
@@ -27,7 +33,7 @@
       </center>
     </div>
   </div>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
   <div class="col-md-4">
     <div class="posts">
@@ -71,8 +77,6 @@
         <p>2. <%= user.goal2 %></p>
         <p>3. <%= user.goal3 %></p>
   </div>
-  </div>
-  <div class="col-md-4">
     <div class="posts">
   <h2>Buddies</h2>
   <hr>
@@ -82,7 +86,7 @@
         <img src="<%=buddy.avatar%>" width="40" height="40" class="img-circle"><h3 style="float:right;margin:0;"><%=buddy.username %></h3>
       </div></a>
       <% }) %>
-  </div>
+    </div>
   </div>
   </div>
 </body>

@@ -4,7 +4,6 @@ const express = require('express');
 const router = express.Router();
 const knex = require('../db/knex');
 const bcrypt = require('bcrypt');
-const flash = require('flash');
 
 function authorizedUser(req, res, next) {
   let userID = req.session.user.id;

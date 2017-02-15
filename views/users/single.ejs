@@ -22,16 +22,16 @@
         <a href="/auth"><img src="<%=user.avatar %>" name="aboutme" width="180" height="180" class="img-circle"></a><h3><%=user.username %></h3></a>
         <% if(current_user !== user.id){ %>
           <% buddyCheck.forEach(function (check) { %>
-          <% if(check.buddy_id === userID){ %>
-            <form action="/buddies/<%=user.id %>?_method=DELETE" method="POST">
-                <button type="submit" class="btn btn-danger">Buddy Down</button>
+          <% if(check.buddy_id !== userID){ %>
+            <form action="/buddies/<%=user.id %>" method="post">
+              <button type="submit" class="btn btn-success">Buddy Up</button>
             </form>
-            <br>
+        <br>
             <% }else{ %>
-              <form action="/buddies/<%=user.id %>" method="post">
-                <button type="submit" class="btn btn-success">Buddy Up</button>
+              <form action="/buddies/<%=user.id %>?_method=DELETE" method="POST">
+                  <button type="submit" class="btn btn-danger">Buddy Down</button>
               </form>
-          <br>
+              <br>
         <% } %>
         <% }) %>
         <a class="btn btn-primary" href="/messages/new" role="button">Message them</a>
