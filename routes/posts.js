@@ -53,11 +53,14 @@ router.get('/:id', function (req, res, next) {
   })
   .then(function (post) {
     knex('users').innerJoin('comments', 'users.id', 'comments.user_id').where('comments.post_id', postID).then(function (data) {
+      knex('users').innerJoin('posts', 'users.id', 'posts.user_id').where('posts.id', postID).first().then(function(posts) {
       res.render('posts/single', {
         postID: postID,
         userID: userID,
         post: post,
+        posts: posts,
         data: data,
+        })
       })
     })
   })

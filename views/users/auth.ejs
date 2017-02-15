@@ -72,11 +72,17 @@
   <h2>Goals</h2>
   <hr>
 </div>
+<% if(user.goal1 === null || user.goal2 === null || user.goal3 === null ) { %>
   <div class="span3 well">
-        <p>1. <%= user.goal1 %></p>
-        <p>2. <%= user.goal2 %></p>
-        <p>3. <%= user.goal3 %></p>
-  </div>
+  <center><h5>there are no goals ... yet</h5></center>
+</div>
+  <% } else { %>
+    <div class="span3 well">
+          <p>1. <%= user.goal1 %></p>
+          <p>2. <%= user.goal2 %></p>
+          <p>3. <%= user.goal3 %></p>
+    </div>
+    <% } %>
     <div class="posts">
   <h2>Buddies</h2>
   <hr>
