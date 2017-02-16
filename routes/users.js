@@ -28,13 +28,13 @@ router.get('/', [authorizedUser, authorizedAdmin], function(req, res, next) {
 })
 
 router.get('/:id', authorizedUser, function (req, res) {
-  let current_user = req.session.user.id;
+  let current_user = req.session.user;
   let userID = parseInt(req.params.id, 10);
   knex('users').where('id', userID).first().then(function (user){
-    knex('posts').where('user_id', userID).then(function (posts){
+    knex('users').innerJoin('posts', 'users.id', 'posts.user_id').where('users.id', userID).then(function(posts) {
       knex('comments').where('user_id', userID).then(function (comments){
           knex('users').where('id', 'in', knex.select('buddy_id').from('buddies').where('user_id', userID)).then(function (buddies){
-            knex('buddies').where('user_id', current_user).then(function (buddyCheck){
+            knex('buddies').where('user_id', current_user.id).then(function (buddyCheck){
             res.render('users/single', {
           user: user,
           posts: posts,
