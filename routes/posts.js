@@ -96,7 +96,7 @@ router.post('/:id', authorizedUser, function (req, res, next) {
 router.delete('/:id', function (req, res, next) {
   let postID = req.params.id;
   knex('posts').where('id', postID).del().then(function (deleted) {
-    res.redirect('/posts')
+    res.redirect('/auth')
   })
 })
 

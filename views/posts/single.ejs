@@ -33,8 +33,12 @@
     </form>
     <% if(post.user_id === userID) { %>
     <hr>
-    <form action="/posts/<%=postID %>/edit"method="get">
+    <form action="/posts/<%=postID %>/edit"method="GET">
       <input type="submit" class="btn btn-warning" value="Edit">
+    </form>
+    <br>
+    <form action="/posts/<%=postID %>?_method=DELETE" method="POST">
+      <input type="submit" class="btn btn-danger" value="Delete">
     </form>
     <% } %>
     <hr>
