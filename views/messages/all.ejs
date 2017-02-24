@@ -14,7 +14,7 @@ a,a:hover,p {
 <div class="container">
   <div class="col-sm-6 col-sm-offset-3">
   <div class="posts">
-<h2>Messages</h2>
+<h2>New Messages</h2>
 <hr>
 </div>
 <% messages.forEach(function (message) { %>
@@ -24,6 +24,11 @@ a,a:hover,p {
     </div>
     <% }) %>
     </a>
-    <a class="btn btn-success" href="/messages/new" role="button">New Message</a>
+    <a class="btn btn-success" href="/messages/new" style="float:right;"role="button">New Message</a>
+</div>
+<div class="col-sm-6 col-sm-offset-3">
+<div class="posts">
+<h2>Old Messages</h2>
+<hr>
 </div>
 </div>

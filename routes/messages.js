@@ -34,10 +34,13 @@ router.get('/new', function (req, res, next) {
 })
 
 router.get('/:id', function (req, res, next) {
-  let messageID = req.params.id;
+  let messageID = parseInt(req.params.id, 10);
   let userID = req.session.user.id;
   knex('messages').innerJoin('users', 'users.id', 'messages.sender_id').where('messages.id', messageID).first().then(function (message) {
-    res.render('messages/single', {message:message})
+    res.render('messages/single', {
+      message:message
+    })
+    console.log(message);
   })
 })
 
