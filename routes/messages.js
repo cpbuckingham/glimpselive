@@ -40,7 +40,6 @@ router.get('/:id', function (req, res, next) {
     res.render('messages/single', {
       message:message
     })
-    console.log(message);
   })
 })
 
