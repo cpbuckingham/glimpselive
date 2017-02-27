@@ -1,26 +1,22 @@
 <!doctype html>
 <html>
-<head>
-  <% include partials/head %>
+  <% include ../partials/head %>
   <style>
       body        { padding-top:80px; }
   </style>
-</head>
+
 <body>
 <div class="container">
-
 <div class="col-sm-6 col-sm-offset-3">
-
   <h2>Edit this comment</h2>
-
-    <!-- NEW POST FORM -->
-    <form class="" action="/posts/<%=comment.id %>?_method=PUT" method="post">
-        <div class="form-group">
-            <label>Comment</label>
-            <input type="text" class="form-control" name="comment" rows="4" cols="30">
-        </div>
-        <button type="submit" class="btn btn-success btn-lg">Submit</button>
-    </form>
+  <form action="/posts/<%=comment.id %>?_method=PUT" method="post">
+      <div class="form-group">
+          <input type="text" class="form-control" name="comment" value="<%=comment.content%>" rows="4" cols="30">
+      </div>
+      <button type="submit" class="btn btn-success btn-lg">Submit</button>
+  </form>
+    <hr>
+    <p><a href="/auth">home</a></p>
 </div>
 </div>
 </body>

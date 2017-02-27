@@ -78,6 +78,7 @@ router.get('/:id', function (req, res, next) {
       res.render('comments/edit', {
         comment:comment
       })
+      console.log(coment);
     })
   })
 })
