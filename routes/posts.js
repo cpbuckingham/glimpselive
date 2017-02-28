@@ -64,6 +64,7 @@ router.get('/:id', function (req, res, next) {
       })
     })
   })
+})
 
   router.get('/:id/edit', authorizedUser, function(req, res, next) {
     let postID = req.params.id;
@@ -75,13 +76,9 @@ router.get('/:id', function (req, res, next) {
   router.get('/:id/comment/edit', authorizedUser, function (req, res, next) {
     let postID = req.params.id;
     knex('comments').where('post_id', postID).first().then(function(comment) {
-      res.render('comments/edit', {
-        comment:comment
-      })
-      console.log(coment);
+      res.render('comments/edit', {comment: comment})
     })
   })
-})
 
 router.post('/:id', authorizedUser, function (req, res, next) {
   let postID = req.params.id;
@@ -111,7 +108,7 @@ router.put('/:id' ,function (req, res, next) {
   } )
 })
 
-router.put(':id/comments', function (req, res, next) {
+router.put('/:id/comment',function (req, res, next) {
   let postID = req.params.id;
   knex('comments').where('post_id', postID).update({
     content: req.body.content
