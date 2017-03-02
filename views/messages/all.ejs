@@ -42,7 +42,6 @@ a,a:hover,p {
 <% } %>
 <% }) %>
 
-
 </div>
 </div>
 
@@ -50,6 +49,7 @@ a,a:hover,p {
 $('#markRead').click(function(event){
   console.log(event);
   var id = $(this).data('message.id');
+  console.log(id);
   var url = "/messages/" + id;
   $.ajax({
     url: url,

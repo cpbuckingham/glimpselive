@@ -29,7 +29,7 @@
         <img src="<%=user.avatar %>" name="aboutme" width="180" height="180" class="img-circle"></a><h3>Hey, <%=user.username %></h3>
         <a class="btn btn-success" href="/posts/new" role="button">Create a Post</a>
         <a class="btn btn-warning" href="/users/<%= user.id %>/edit" role="button">Edit Profile</a>
-        <% if(!unread) { %>
+        <% if(unread.length === 0) { %>
           <a class="btn btn-primary" href="/messages" role="button">Messages</a>
         <% } else { %>
           <a class="btn btn-primary" href="/messages" role="button">Messages <span class="badge"><%=unread.length%></span></a>
