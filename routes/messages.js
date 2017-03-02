@@ -53,4 +53,19 @@ router.post('/', function(req, res, next) {
   })
 })
 
+router.delete('/:id', function (req, res, next) {
+  let messageID = req.params.id;
+  knex('messages').where('id', messageID).del().then(function (deleted) {
+    res.redirect('/messages')
+  })
+})
+
+router.put('/:id', function(req, res, next) {
+  knex('messages').update({
+    read: true,
+  }).then(function (){
+    res.render('/messages')
+  })
+})
+
 module.exports = router

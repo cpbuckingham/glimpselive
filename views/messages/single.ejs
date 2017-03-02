@@ -14,6 +14,10 @@
     <h3><u>Note</u>: <%= message.note %></h3>
     <h3><u>From</u>: <a href="/users/<%=message.sender_id%>"><%=message.username %></a></h3>
     <hr>
+    <form action="/messages/<%=message.id %>?_method=DELETE" method="POST">
+      <input type="submit" class="btn btn-danger" value="Delete">
+    </form>
+    <hr>
     <p><a href="/auth">home</a></p>
 </div>
 </div>
