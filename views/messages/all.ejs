@@ -20,7 +20,7 @@ a,a:hover,p {
   </div>
   <% messages.forEach(function (message) { %>
   <% if(message.read === false) { %>
-<a href="/messages/<%=message.id%>" id="markRead">
+<a href="/messages/<%=message.id%>" id="markRead" data-href="<%=message.id%>">
     <div class="span3 well">
       <img src="<%=message.avatar%>" width="40" height="40" class="img-circle"><h3 style="float:right;margin:0;"><%=message.username %></h3>
     </div>
@@ -46,10 +46,8 @@ a,a:hover,p {
 </div>
 
 <script>
-$('#markRead').click(function(event){
-  console.log(event);
-  var id = $(this).data('message.id');
-  console.log(id);
+$('#markRead').click(function(){
+  var id = $(this).data('href');
   var url = "/messages/" + id;
   $.ajax({
     url: url,

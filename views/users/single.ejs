@@ -28,7 +28,7 @@
               <form action="/buddies/<%=user.id %>?_method=DELETE" method="POST" style="display: inline-block;margin-right: 5px;">
                   <button type="submit" class="btn btn-danger">Buddy Down</button>
               </form>
-        <a class="btn btn-primary" href="/messages/new" role="button">Message them</a>
+        <a class="btn btn-primary" href="/messages/new/<%=user.id%>" role="button">Message them</a>
         <% } %>
       </center>
     </div>

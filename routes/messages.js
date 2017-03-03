@@ -33,6 +33,15 @@ router.get('/new', function (req, res, next) {
   })
 })
 
+router.get('/new/:id', function (req, res, next) {
+  let userID = req.params.id
+  knex('users').where('id', userID).first().then(function (user){
+  res.render('messages/direct',{
+    user:user,
+    })
+  })
+})
+
 router.get('/:id', function (req, res, next) {
   let messageID = parseInt(req.params.id, 10);
   let userID = req.session.user.id;
@@ -54,6 +63,17 @@ router.post('/', function(req, res, next) {
   })
 })
 
+router.post('/:id', function(req, res, next) {
+  let userID = req.params.id;
+  knex('messages').insert({
+    note: req.body.note,
+    sender_id: req.session.user.id,
+    user_id: userID,
+  }).then(function (){
+    res.redirect('/auth')
+  })
+})
+
 router.delete('/:id', function (req, res, next) {
   let messageID = req.params.id;
   knex('messages').where('id', messageID).del().then(function (deleted) {
@@ -62,10 +82,11 @@ router.delete('/:id', function (req, res, next) {
 })
 
 router.put('/:id', function(req, res, next) {
-  knex('messages').update({
+  let messageID = parseInt(req.params.id, 10);
+  knex('messages').where('id', messageID).update({
     read: true,
   }).then(function (){
-    res.render('/messages')
+    res.redirect('/messages/'+ messageID)
   })
 })
 
