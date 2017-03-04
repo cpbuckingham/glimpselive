@@ -26,6 +26,7 @@ function authorizedAdmin(req, res, next) {
 
 router.get('/', authorizedUser,  function (req, res) {
   let userID = req.session.user.id;
+  knex('users').then(function (users) {
   knex.from('users').innerJoin('messages', 'users.id', 'messages.sender_id').where('messages.user_id', userID).then(function (messages) {
   knex.from('messages').where({read: false, user_id: userID}).then(function (unread) {
   knex('users').where('id', userID).first().then(function (user){
@@ -34,6 +35,7 @@ router.get('/', authorizedUser,  function (req, res) {
         knex('comments').where('user_id', userID).then(function (comments){
          knex('users').where('id', 'in', knex.select('buddy_id').from('buddies').where('user_id', userID)).then(function (buddies){
           res.render('users/auth', {
+            users: users,
             user: user,
             posts: posts,
             my_posts: my_posts,
@@ -41,6 +43,7 @@ router.get('/', authorizedUser,  function (req, res) {
             buddies: buddies,
             messages: messages,
             unread: unread,
+                  })
                 })
               })
             })
