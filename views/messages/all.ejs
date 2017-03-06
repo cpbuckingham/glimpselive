@@ -41,14 +41,16 @@ a,a:hover,p {
     </a>
 <% } %>
 <% }) %>
-
+<a href="/auth">home</a>
 </div>
 </div>
 
 <script>
 $('#markRead').click(function(){
   var id = $(this).data('href');
+  console.log(id);
   var url = "/messages/" + id;
+  console.log(url);
   $.ajax({
     url: url,
     type: 'PUT',
