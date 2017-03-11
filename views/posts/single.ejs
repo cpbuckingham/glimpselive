@@ -21,7 +21,7 @@
     <% data.forEach(function(comment) { %>
       <li><%=comment.content %> - <a href="/users/<%=comment.user_id%>"><%=comment.username %></a>
         <% if(comment.user_id === userID) { %>
-        <a href="/posts/<%=comment.post_id%>/comment/edit" style="float:right;">edit</a>
+        <a href="/comments/<%=comment.id%>/edit%>" style="float:right;">edit</a>
         <% } %>
       </li>
     <% }) %>
