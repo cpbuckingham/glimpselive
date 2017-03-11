@@ -108,13 +108,4 @@ router.put('/:id' ,function (req, res, next) {
   } )
 })
 
-router.put('/:id/comment',function (req, res, next) {
-  let postID = req.params.id;
-  knex('comments').where('post_id', postID).update({
-    content: req.body.content
-  }).then(function (comment){
-    res.redirect('/posts/' + postID)
-  })
-})
-
 module.exports = router;

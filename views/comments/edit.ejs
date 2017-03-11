@@ -11,7 +11,7 @@
 <div class="container">
 <div class="col-sm-6 col-sm-offset-3">
   <h2>Edit this comment</h2>
-  <form action="/posts/<%=comment.post_id %>/comment?_method=PUT" method="post">
+  <form action="/comments/<%=comment.post_id %>/comment?_method=PUT" method="post">
       <div class="form-group">
           <input type="text" class="form-control" name="content" value="<%=comment.content%>" rows="4" cols="30">
       </div>

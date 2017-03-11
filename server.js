@@ -20,6 +20,7 @@ const blog = require('./routes/blog');
 const messages = require('./routes/messages');
 const buddies = require('./routes/buddies');
 const featured = require('./routes/featured');
+const comments = require('./routes/comments');
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -38,6 +39,7 @@ app.use('/blog', blog);
 app.use('/messages', messages);
 app.use('/buddies', buddies);
 app.use('/featured', featured);
+app.use('/comments', comments);
 
 app.listen(port, function () {
   console.log('hello from', port);
