@@ -25,18 +25,22 @@ router.get('/:id/edit', function (req, res, next) {
 })
 
 router.delete('/:id', function (req, res, next) {
-  let commentID = req.params.id;
-  knex('comments').where('id', commentID).del().then(function (deleted) {
-    res.redirect('/auth')
+  let id = req.params.id;
+  knex.select('post_id').from('comments').where("id",id ).first().then(function( commentID ) {
+  knex('comments').where('id', id).del().then(function (deleted) {
+    res.redirect('/posts/' + commentID.post_id)
+    })
   })
 })
 
 router.put('/:id',function (req, res, next) {
-  let commentID = req.params.id;
-  knex('comments').where('id', commentID).update({
+  let id = req.params.id;
+  knex.select('post_id').from('comments').where("id",id ).first().then(function( commentID ) {
+  knex('comments').where('id', id).update({
     content: req.body.content
   }).then(function (comment){
-    res.redirect('/auth')
+    res.redirect('/posts/' + commentID.post_id)
+    })
   })
 })
 
